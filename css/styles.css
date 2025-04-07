@@ -1,0 +1,654 @@
+/* Reset dan Variabel */
+:root {
+    --dark-blue: #1a1e2e;
+    --darker-blue: #141824;
+    --accent-color: #e63946;
+    --text-color: #f1faee;
+    --secondary-text: #a8b2d1;
+    --card-bg: #252a3b;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--dark-blue);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Load Font Metal Mania */
+@font-face {
+    font-family: 'Metal Mania';
+    src: url('fonts/Metal Mania.ttf') format('truetype');
+}
+
+/* Logo "ROCKFOLIO" */
+.navbar .logo {
+    font-family: 'Metal Mania', cursive;
+    font-size: 24px;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+/* Nama "Achmad Septian Mulia" */
+.header-content h1 {
+    font-family: 'Metal Mania', cursive;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+/* Menu Navigasi */
+.menu li a {
+    font-family: 'Metal Mania', cursive;
+    font-size: 16px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.menu li a:hover {
+    color: var(--accent-color);
+}
+
+.menu li a:hover {
+    color: var(--accent-color);
+}
+
+.navbar .logo {
+    font-family: 'Metal Mania', cursive;
+}
+
+.header-content h1 {
+    font-family: 'Metal Mania', cursive;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 15px;
+    color: var(--text-color);
+}
+
+/* Tentang Saya - Layout Baru */
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.content-section {
+    flex: 1;
+    min-width: 280px;
+}
+
+.photo-section {
+    flex: 0 0 300px;
+    text-align: center;
+}
+
+.card {
+    background-color: #252a3d;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-photo {
+    width: 100%;
+    max-width: 280px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.item-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.item-subtitle {
+    color: #b3b9c5;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.date {
+    color: #b3b9c5;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .profile-container {
+        flex-direction: column-reverse;
+    }
+    
+    .photo-section {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+.blog-item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.blog-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Style untuk link blog */
+.blog-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.blog-link:hover .blog-item {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.blog-item {
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.blog-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.blog-content {
+    padding: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background-color: var(--accent-color);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #c1121f;
+    transform: translateY(-3px);
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--darker-blue);
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px; /* Supaya ada jarak dari sisi kiri & kanan */
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.logo {
+    font-family: 'RockFont', sans-serif; /* Untuk ROCKFOLIO */
+}
+
+.header-content h1 {
+    font-family: 'RockFont', sans-serif; /* Untuk Achmad Septian Mulia */
+}
+
+
+.logo span {
+    color: var(--accent-color);
+}
+
+.menu {
+    display: flex;
+}
+
+.menu li {
+    margin: 0 15px;
+}
+
+.menu li a {
+    font-size: 14px;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.menu li a i {
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+.menu li a:hover {
+    color: var(--accent-color);
+}
+
+/* Header */
+.header {
+    height: 100vh;
+    background-image: url('header-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Sesuaikan tingkat gelapnya */
+    z-index: 0;
+}
+
+.header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(20, 24, 36, 0.8);
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.header-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.header-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: var(--secondary-text);
+}
+
+/* Tentang Saya */
+.tentang-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.tentang-left, .tentang-right {
+    flex: 1;
+    min-width: 300px;
+}
+
+.tentang-item {
+    margin-bottom: 30px;
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+}
+
+.tentang-item h3 {
+    margin-bottom: 20px;
+    color: var(--accent-color);
+    font-size: 22px;
+}
+
+.tentang-item h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.tentang-item p {
+    color: var(--secondary-text);
+    margin-bottom: 5px;
+}
+
+.tentang-item span {
+    display: block;
+    font-size: 14px;
+    color: var(--secondary-text);
+    margin-top: 10px;
+}
+
+.profile-image {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.profile-image img {
+    width: 180px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+}
+
+/* Pencapaian */
+.pencapaian {
+    background-color: var(--darker-blue);
+}
+
+.pencapaian-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.pencapaian-item {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+    background-color: var(--card-bg);
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+}
+
+.pencapaian-item:hover {
+    transform: translateY(-10px);
+}
+
+.pencapaian-item i {
+    font-size: 40px;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.pencapaian-item h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.pencapaian-item p {
+    color: var(--secondary-text);
+}
+
+/* Portfolio */
+.portofolio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.portofolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    height: 250px;
+}
+
+.portofolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.portofolio-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Blog */
+.blog {
+    background-color: var(--darker-blue);
+}
+
+.blog-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.blog-item {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+}
+
+.blog-item:hover {
+    transform: translateY(-10px);
+}
+
+.blog-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-content {
+    padding: 20px;
+}
+
+.blog-content h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.blog-content p {
+    color: var(--secondary-text);
+    margin-bottom: 15px;
+}
+
+.blog-meta {
+    display: flex;
+    justify-content: space-between;
+    color: var(--secondary-text);
+    font-size: 14px;
+}
+
+.blog-meta span {
+    display: flex;
+    align-items: center;
+}
+
+.blog-meta span i {
+    margin-right: 5px;
+}
+
+/* Kontak */
+.kontak-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.kontak-info, .kontak-form {
+    flex: 1;
+    min-width: 300px;
+}
+
+.kontak-info h3 {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.kontak-info ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    color: var(--secondary-text);
+}
+
+.kontak-info ul li i {
+    min-width: 30px;
+    color: var(--accent-color);
+}
+
+.social-icons {
+    display: flex;
+    margin-top: 25px;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--card-bg);
+    border-radius: 50%;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.kontak-form {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--dark-blue);
+    border: 1px solid #2c3550;
+    border-radius: 5px;
+    color: var(--text-color);
+    resize: none;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--darker-blue);
+    text-align: center;
+    padding: 25px 0;
+    color: var(--secondary-text);
+    font-size: 14px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+    }
+
+    .header-content h1 {
+        font-size: 36px;
+    }
+
+    .header-content p {
+        font-size: 18px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .tentang-left, .tentang-right, 
+    .kontak-info, .kontak-form {
+        flex: 100%;
+    }
+
+    .pencapaian-item {
+        min-width: 100%;
+        margin-bottom: 20px;
+    }
+}
