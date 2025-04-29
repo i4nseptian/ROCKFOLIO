@@ -5,15 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Achmad Septian Mulia - Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/animated.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Custom Animation Styles */
+        .pencapaian-item:hover {
+            animation: animate__tada 0.5s !important;
+        }
+        .blog-item:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .blog-item img {
+            transition: transform 0.3s ease;
+        }
+        .blog-item:hover img {
+            transform: scale(1.05);
+        }
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            animation: animate__pulse 0.5s;
+            border-color: #ff5722;
+        }
+        .fullscreen-view {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+        }
+    </style>
 </head>
-<body>
+<body class="animate__animated animate__fadeIn">
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container">
-            <a href="#" class="logo animate__animated animate__rubberBand">ROCK<span>FOLIO</span></a>
+            <a href="#" class="logo animate__animated animate__rubberBand animate__infinite animate__slower">ROCK<span>FOLIO</span></a>
             <ul class="menu">
                 <li><a href="#beranda" class="animate__animated animate__fadeInDown animate__delay-1s"><i class="fas fa-home"></i> Beranda</a></li>
                 <li><a href="#tentang" class="animate__animated animate__fadeInDown animate__delay-1s"><i class="fas fa-user"></i> Tentang Saya</a></li>
@@ -28,25 +69,25 @@
     <!-- Header -->
     <header id="beranda" class="header animated-bg" style="background: url('img/rock\ walpaper.png') no-repeat center center/cover; height: 100vh; position: relative; color: white;">
         <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);"></div>
-        <div class="header-content animate__animated animate__fadeIn" style="position: relative; z-index: 2; text-align: center;">
-            <h1 class="animate__animated animate__backInDown">Achmad Septian Mulia</h1>
-            <p class="animate__animated animate__fadeIn animate__delay-1s">Musisi | Pengembang Web | Desainer</p>
-            <a href="#kontak" class="btn animate__animated animate__bounceIn animate__delay-2s" style="background: #ff5722; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Hubungi Saya</a>
+        <div class="header-content" style="position: relative; z-index: 2; text-align: center;">
+            <h1 class="animate__animated animate__backInDown animate__faster">Achmad Septian Mulia</h1>
+            <p class="animate__animated animate__fadeInUp animate__delay-1s">Musisi | Pengembang Web | Desainer</p>
+            <a href="#kontak" class="btn animate__animated animate__pulse animate__infinite animate__slower" style="background: #ff5722; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Hubungi Saya</a>
         </div>
     </header>
 
     <!-- Tentang Saya -->
     <section id="tentang" class="tentang">
         <div class="container">
-            <h2 class="section-title">Tentang Saya</h2>
+            <h2 class="section-title animate__animated animate__fadeIn">Tentang Saya</h2>
             <div class="profile-container">
                 <div class="content-section">
-                    <div class="card">
+                    <div class="card animate__animated animate__fadeInLeft animate__delay-1s">
                         <h4 class="item-title">Deskripsi Diri</h4>
-                        <p class="item-subtitle">ciao! Nama saya Ian, 19 tahun, mahasiswa Bisnis Digital di Universitas Negeri Makassar. Musik dan olahraga bukan sekadar hobi, tapi bagian dari hidup saya. Nada dan irama mengisi hari-hari saya, sementara tinju mengajarkan disiplin dan ketangguhan. Saya percaya keseimbangan antara pikiran, tubuh, dan passion adalah kunci untuk terus maju. Tinggal di Makassar, saya selalu mencari cara untuk berkembang dan mengekspresikan diri. Dan satu hal lagi kopi  adalah bahan bakar saya. Secangkir kopi yang baik selalu jadi teman terbaik di setiap perjalanan hidup Saya!</p>
+                        <p class="item-subtitle">ciao! Nama saya Ian, 19 tahun, mahasiswa Bisnis Digital di Universitas Negeri Makassar. Musik dan olahraga bukan sekadar hobi, tapi bagian dari hidup saya. Nada dan irama mengisi hari-hari saya, sementara tinju mengajarkan disiplin dan ketangguhan. Saya percaya keseimbangan antara pikiran, tubuh, dan passion adalah kunci untuk terus maju. Tinggal di Makassar, saya selalu mencari cara untuk berkembang dan mengekspresikan diri. Dan satu hal lagi kopi adalah bahan bakar saya. Secangkir kopi yang baik selalu jadi teman terbaik di setiap perjalanan hidup Saya!</p>
                     </div>
                     
-                    <div class="card">
+                    <div class="card animate__animated animate__fadeInLeft animate__delay-2s">
                         <h3 class="section-title">Pendidikan</h3>
                         <h4 class="item-title">S1 Bisnis Digital</h4>
                         <p class="item-subtitle">Universitas Negeri Makassar, 2023-Sekarang</p>
@@ -54,20 +95,18 @@
                                         📌 Fokus pada bidang teknologi digital, bisnis, dan inovasi</p>
                     </div>
                     
-                    <div class="card">
+                    <div class="card animate__animated animate__fadeInLeft animate__delay-3s">
                         <h3 class="section-title">Organisasi</h3>
-                        <h4 class="item-title">Himpunan Mahasiswa Bisnis Digital
+                        <h4 class="item-title">Himpunan Mahasiswa Bisnis Digital</h4>
                         <p class="item-subtitle">Anggota Aktif- 2023 sampai sekarang</p>
                         <p class="date">📌 Berkontribusi dalam kegiatan internal dan eksternal organisasi
-                            📌 Terlibat dalam perencanaan acara, diskusi strategis, dan pengembangan minat mahasiswa
-                            
-                            </p>
+                            📌 Terlibat dalam perencanaan acara, diskusi strategis, dan pengembangan minat mahasiswa</p>
                     </div>
                 </div>
                 
                 <div class="photo-section">
-                    <img src="img/foto fakultas.jpg" alt="Achmad Septian Mulia" class="profile-photo">
-                    <h3>Achmad Septian Mulia</h3>
+                    <img src="img/foto fakultas.jpg" alt="Achmad Septian Mulia" class="profile-photo animate__animated animate__zoomIn animate__delay-1s">
+                    <h3 class="animate__animated animate__fadeIn animate__delay-2s">Achmad Septian Mulia</h3>
                 </div>
             </div>
         </div>
@@ -76,7 +115,7 @@
     <!-- Pencapaian -->
     <section id="pencapaian" class="pencapaian">
         <div class="container">
-            <h2 class="section-title">Pencapaian</h2>
+            <h2 class="section-title animate__animated animate__fadeIn">Pencapaian</h2>
             <div class="pencapaian-container">
                 <div class="pencapaian-item animate__animated animate__fadeInLeft animate__delay-0s">
                     <i class="fas fa-medal animate__animated animate__swing animate__infinite animate__slower"></i>
@@ -118,60 +157,52 @@
         </div>
     </section>
 
-   <!-- Portfolio -->
-<!-- Portfolio -->
-<section id="portofolio" class="portofolio">
-    <div class="container">
-        <h2 class="section-title">Portofolio</h2>
-        <div class="portofolio-container">
-            <div class="portofolio-item">
-                <img src="img/foto band.jpg" alt="Performing on stage" onclick="openImage(this.src)">
-            </div>
-            <div class="portofolio-item">
-                <img src="img/foto inspire.jpg" alt="University campus" onclick="openImage(this.src)">
-            </div>
-            <div class="portofolio-item">
-                <img src="img/foto lavuvu.jpg" alt="Group photo" onclick="openImage(this.src)">
-            </div>
-        </div>
-    </div>
-</section>
-<section id="portofolio" class="portofolio">
-    <div class="container">
-        <div class="portofolio-container">
-            <div class="portofolio-item">
-                <img src="img/foto pengurus.jpg" alt="Performing on stage" onclick="openImage(this.src)">
-            </div>
-            <div class="portofolio-item">
-                <img src="img/rosetta.jpg" alt="University campus" onclick="openImage(this.src)">
-            </div>
-            <div class="portofolio-item">
-                <img src="img/solitaire 1.png" alt="Group photo" onclick="openImage(this.src)">
+    <!-- Portfolio -->
+    <section id="portofolio" class="portofolio">
+        <div class="container">
+            <h2 class="section-title animate__animated animate__fadeIn">Portofolio</h2>
+            <div class="portofolio-container">
+                <div class="portofolio-item animate__animated animate__zoomIn animate__delay-1s">
+                    <img src="img/foto band.jpg" alt="Performing on stage" onclick="openImage(this.src)">
+                </div>
+                <div class="portofolio-item animate__animated animate__zoomIn animate__delay-2s">
+                    <img src="img/foto inspire.jpg" alt="University campus" onclick="openImage(this.src)">
+                </div>
+                <div class="portofolio-item animate__animated animate__zoomIn animate__delay-3s">
+                    <img src="img/foto lavuvu.jpg" alt="Group photo" onclick="openImage(this.src)">
+                </div>
             </div>
         </div>
+    </section>
+    <section id="portofolio" class="portofolio">
+        <div class="container">
+            <div class="portofolio-container">
+                <div class="portofolio-item animate__animated animate__zoomIn animate__delay-1s">
+                    <img src="img/foto pengurus.jpg" alt="Performing on stage" onclick="openImage(this.src)">
+                </div>
+                <div class="portofolio-item animate__animated animate__zoomIn animate__delay-2s">
+                    <img src="img/rosetta.jpg" alt="University campus" onclick="openImage(this.src)">
+                </div>
+                <div class="portofolio-item animate__animated animate__zoomIn animate__delay-3s">
+                    <img src="img/solitaire 1.png" alt="Group photo" onclick="openImage(this.src)">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fullscreen Image Viewer -->
+    <div id="fullscreen-container" class="fullscreen-view">
+        <img id="fullscreen-image" src="">
+        <span class="close-btn" onclick="closeImage()">&times;</span>
     </div>
-</section>
-
-<!-- Simple Fullscreen Image Viewer -->
-<div id="fullscreen-container" class="fullscreen-view">
-    <img id="fullscreen-image" src="">
-    <span class="close-btn" onclick="closeImage()">&times;</span>
-</div>
-
-<!-- Lightbox Modal -->
-<div id="lightboxModal" class="lightbox-modal">
-    <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
-    <img class="lightbox-content" id="lightboxImg">
-    <div id="lightboxCaption"></div>
-</div>
 
     <!-- Blog -->
     <section id="blog" class="blog">
         <div class="container">
-            <h2 class="section-title">Blog</h2>
+            <h2 class="section-title animate__animated animate__fadeIn">Blog</h2>
             <div class="blog-container">
                 <!-- Blog Item 1 -->
-                <a href="blog1.html" class="blog-link">
+                <a href="blog1.html" class="blog-link animate__animated animate__fadeInUp animate__delay-1s">
                     <div class="blog-item">
                         <img src="img/foto sejarah rock.jpeg" alt="Guitar">
                         <div class="blog-content">
@@ -186,7 +217,7 @@
                 </a>
 
                 <!-- Blog Item 2 -->
-                <a href="blog2.html" class="blog-link">
+                <a href="blog2.html" class="blog-link animate__animated animate__fadeInUp animate__delay-2s">
                     <div class="blog-item">
                         <img src="img/foto kopi.jpeg" alt="Music Studio">
                         <div class="blog-content">
@@ -201,7 +232,7 @@
                 </a>
 
                 <!-- Blog Item 3 -->
-                <a href="blog3.html" class="blog-link">
+                <a href="blog3.html" class="blog-link animate__animated animate__fadeInUp animate__delay-3s">
                     <div class="blog-item">
                         <img src="img/foto web development.jpeg" alt="Web Development">
                         <div class="blog-content">
@@ -219,11 +250,11 @@
     </section>
 
     <!-- Kontak -->
-    <section id="kontak" class="kontak">
+    <section id="kontak" class="kontak animate__animated animate__fadeIn">
         <div class="container">
             <h2 class="section-title">Kontak</h2>
             <div class="kontak-container">
-                <div class="kontak-info">
+                <div class="kontak-info animate__animated animate__fadeInLeft animate__delay-1s">
                     <h3>Mari Terhubung</h3>
                     <ul>
                         <li><i class="fas fa-envelope"></i> i4nseptian77@gmail.com</li>
@@ -231,13 +262,13 @@
                         <li><i class="fas fa-map-marker-alt"></i> Makassar, Indonesia</li>
                     </ul>
                     <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook animate__animated animate__bounce animate__infinite animate__slower"></i></a>
+                        <a href="#"><i class="fab fa-twitter animate__animated animate__bounce animate__infinite animate__slower animate__delay-1s"></i></a>
+                        <a href="#"><i class="fab fa-instagram animate__animated animate__bounce animate__infinite animate__slower animate__delay-2s"></i></a>
+                        <a href="#"><i class="fab fa-linkedin animate__animated animate__bounce animate__infinite animate__slower animate__delay-3s"></i></a>
                     </div>
                 </div>
-                <div class="kontak-form">
+                <div class="kontak-form animate__animated animate__fadeInRight animate__delay-1s">
                     <form>
                         <div class="form-group">
                             <label for="nama">Nama</label>
@@ -251,7 +282,7 @@
                             <label for="pesan">Pesan</label>
                             <textarea id="pesan" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn">Kirim Pesan</button>
+                        <button type="submit" class="btn animate__animated animate__pulse animate__infinite animate__slower">Kirim Pesan</button>
                     </form>
                 </div>
             </div>
@@ -259,12 +290,41 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="animate__animated animate__fadeInUp">
         <div class="container">
             <p>&copy; 2024 Rock Portfolio. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script>
+        // Image Viewer Functionality
+        function openImage(src) {
+            const fullscreenImg = document.getElementById('fullscreen-image');
+            fullscreenImg.src = src;
+            document.getElementById('fullscreen-container').style.display = 'flex';
+            fullscreenImg.classList.add('animate__animated', 'animate__zoomIn');
+        }
+
+        function closeImage() {
+            document.getElementById('fullscreen-container').style.display = 'none';
+        }
+
+        // Close when clicking outside image
+        document.getElementById('fullscreen-container').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeImage();
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
