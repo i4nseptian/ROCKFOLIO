@@ -651,21 +651,7 @@ footer {
         min-width: 100%;
         margin-bottom: 20px;
     }
-    /* Lightbox Modal Styles */
-.lightbox-modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    padding-top: 50px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9);
-}
-
-/* Simple Fullscreen Image Viewer */
+    /* Lightbox/Fullscreen Image Viewer Styles */
 .fullscreen-view {
     display: none;
     position: fixed;
@@ -673,26 +659,122 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
     justify-content: center;
     align-items: center;
+    overflow: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.fullscreen-view.active {
+    display: flex;
+    opacity: 1;
 }
 
 #fullscreen-image {
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 85%;
+    max-height: 85vh;
     object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
+}
+
+.fullscreen-view.active #fullscreen-image {
+    transform: scale(1);
 }
 
 .close-btn {
-    position: absolute;
-    top: 20px;
+    position: fixed;
+    top: 30px;
     right: 30px;
     color: white;
-    font-size: 40px;
-    font-weight: bold;
+    font-size: 35px;
     cursor: pointer;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.5);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    background: rgba(230, 57, 70, 0.8);
+    transform: rotate(90deg);
+}
+
+/* Portfolio Image Hover Effect */
+.portofolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.portofolio-item img {
+    transition: transform 0.4s ease;
+}
+
+.portofolio-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Zoom Controls (optional) */
+.zoom-controls {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 10000;
+}
+
+.zoom-btn {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.zoom-btn:hover {
+    background: var(--accent-color);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #fullscreen-image {
+        max-width: 95%;
+        max-height: 80vh;
+    }
+    
+    .close-btn {
+        top: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 25px;
+    }
+    
+    .zoom-controls {
+        bottom: 20px;
+    }
 }
 
 /* Make portfolio item images clickable */

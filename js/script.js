@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener("DOMContentLoaded", typeWriter);
 
 // 1. Tambahkan elemen audio ke dalam HTML melalui JavaScript
-const music = new Audio('Welcome To The Jungle.mp3'); // Ganti dengan file musik rock-mu
+const music = new Audio('audio/Ace Of Spades.mp3'); // Ganti dengan file musik rock-mu
 music.id = "musicPlayer"; // Memberi ID untuk mempermudah kontrol
 music.loop = true; // Musik akan diputar terus-menerus
 
@@ -148,3 +148,53 @@ portfolioItems.forEach(img => {
     });
 });
 
+// Image Viewer Functionality
+let currentScale = 1;
+
+function openImage(src) {
+    const fullscreenImg = document.getElementById('fullscreen-image');
+    const fullscreenView = document.getElementById('fullscreen-container');
+    
+    fullscreenImg.src = src;
+    currentScale = 1; // Reset zoom
+    fullscreenImg.style.transform = 'scale(1)';
+    fullscreenView.classList.add('active');
+    
+    // Enable keyboard controls
+    document.addEventListener('keydown', handleKeyDown);
+}
+
+function closeImage() {
+    const fullscreenView = document.getElementById('fullscreen-container');
+    fullscreenView.classList.remove('active');
+    document.removeEventListener('keydown', handleKeyDown);
+}
+
+function zoomImage(scaleFactor) {
+    const fullscreenImg = document.getElementById('fullscreen-image');
+    currentScale *= scaleFactor;
+    currentScale = Math.max(0.5, Math.min(3, currentScale)); // Limit zoom range
+    fullscreenImg.style.transform = `scale(${currentScale})`;
+}
+
+function handleKeyDown(e) {
+    if (e.key === 'Escape') closeImage();
+    if (e.key === '+') zoomImage(1.1);
+    if (e.key === '-') zoomImage(0.9);
+}
+
+// Close when clicking outside image
+document.getElementById('fullscreen-container').addEventListener('click', function(e) {
+    if (e.target === this || e.target.classList.contains('close-btn')) {
+        closeImage();
+    }
+});
+
+// Initialize zoom buttons if you add them
+document.querySelectorAll('.zoom-in').forEach(btn => {
+    btn.addEventListener('click', () => zoomImage(1.1));
+});
+
+document.querySelectorAll('.zoom-out').forEach(btn => {
+    btn.addEventListener('click', () => zoomImage(0.9));
+});
