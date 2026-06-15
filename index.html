@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,148 +9,355 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="shortcut icon" href="img/ace_of_spades-removebg-preview.png" type="image/x-icon">
-    <style>
-        /* Custom Animation Styles */
-        .blog-item:hover {
-            transform: translateY(-5px);
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .blog-item img {
-            transition: transform 0.3s ease;
-        }
-        .blog-item:hover img {
-            transform: scale(1.05);
-        }
-        .form-group input:focus, 
-        .form-group textarea:focus {
-            animation: animate__pulse 0.5s;
-            border-color: #ff5722;
-        }
-        .fullscreen-view {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 999;
-            justify-content: center;
-            align-items: center;
-        }
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 40px;
-            color: white;
-            font-size: 40px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body class="animate__animated animate__fadeIn">
-    <!-- Navbar -->
-<nav class="navbar">
-    <div class="container">
-        <a href="#" class="logo animate__animated animate__rubberBand">ROCK<span>FOLIO</span></a>
-        <ul class="menu">
-            <li><a href="#beranda" class="animate__animated animate__fadeInDown animate__delay-1s"><i class="fas fa-home"></i> Beranda</a></li>
-            <li><a href="#tentang" class="animate__animated animate__fadeInDown animate__delay-1s"><i class="fas fa-user"></i> Tentang Saya</a></li>
-            <li><a href="#pencapaian" class="animate__animated animate__fadeInDown animate__delay-1s"><i class="fas fa-trophy"></i> Pencapaian</a></li>
-            <li><a href="#portofolio" class="animate__animated animate__fadeInDown animate__delay-1s"><i class="fas fa-briefcase"></i> Portfolio</a></li>
-            <li><a href="#blog" class="animate__animated animate__fadeInDown animate__delay-1s"><i class="fas fa-blog"></i> Blog</a></li>
-            <li><a href="#kontak" class="animate__animated animate__fadeInDown animate__delay-1s"><i class="fas fa-envelope"></i> Kontak</a></li>
-        </ul>
-    </div>
-</nav>
 
-    <!-- Header -->
-    <header id="beranda" class="header animated-bg" style="background: url('img/rock\ walpaper.png') no-repeat center center/cover; height: 100vh; position: relative; color: white;">
-        <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);"></div>
-        <div class="header-content" style="position: relative; z-index: 2; text-align: center;">
-            <h1 class="animate__animated animate__backInDown animate__faster">Achmad Septian Mulia</h1>
-            <p class="animate__animated animate__fadeInUp animate__delay-1s">Musisi | Pengembang Web | Desainer</p>
-            <a href="#kontak" class="btn animate__animated animate__pulse animate__infinite animate__slower" style="background: #ff5722; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">Hubungi Saya</a>
+</head>
+
+<body class="animate__animated animate__fadeIn">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-vinyl">
+                <img src="img/ace_of_spades-removebg-preview.png" alt="Loading" class="preloader-disk">
+                <div class="preloader-center"></div>
+            </div>
+            <div class="preloader-text">
+                <span class="preloader-brand">ROCK<span>FOLIO</span></span>
+                <div class="preloader-bar">
+                    <div class="preloader-progress"></div>
+                </div>
+                <span class="preloader-loading">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Backdrop -->
+    <div class="menu-backdrop"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo animate__animated animate__rubberBand">ROCK<span>FOLIO</span></a>
+            <div class="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="menu">
+                <li><a href="#beranda" class="animate__animated animate__fadeInDown animate__delay-1s"><i
+                            class="fas fa-home"></i> Home</a></li>
+                <li><a href="#tentang" class="animate__animated animate__fadeInDown animate__delay-1s"><i
+                            class="fas fa-user"></i> About</a></li>
+                <li><a href="#pencapaian" class="animate__animated animate__fadeInDown animate__delay-1s"><i
+                            class="fas fa-trophy"></i> Services</a></li>
+                <li><a href="#skills" class="animate__animated animate__fadeInDown animate__delay-1s"><i
+                            class="fas fa-star"></i> Skills</a></li>
+                <li><a href="#portofolio" class="animate__animated animate__fadeInDown animate__delay-1s"><i
+                            class="fas fa-briefcase"></i> Portfolio</a></li>
+                <li><a href="#testimonials" class="animate__animated animate__fadeInDown animate__delay-1s"><i
+                            class="fas fa-comment-dots"></i> Testimonials</a></li>
+                <li><a href="#blog" class="animate__animated animate__fadeInDown animate__delay-1s"><i
+                            class="fas fa-blog"></i> Blog</a></li>
+                <li><a href="#kontak" class="animate__animated animate__fadeInDown animate__delay-1s"><i
+                            class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+        <div class="scroll-progress"></div>
+    </nav>
+
+    <!-- Header / Landing Hero -->
+    <header id="beranda" class="hero-landing">
+        <div id="particles-container"></div>
+
+        <!-- Mouse Spotlight -->
+        <div class="hero-spotlight" id="heroSpotlight"></div>
+
+        <!-- Floating Geometric Shapes -->
+        <div class="geo-shapes" id="geoShapes">
+            <div class="geo-shape shape-triangle"></div>
+            <div class="geo-shape shape-circle"></div>
+            <div class="geo-shape shape-diamond"></div>
+            <div class="geo-shape shape-x"></div>
+        </div>
+
+        <!-- Audio Visualizer Bars (Rock Theme) -->
+        <div class="hero-visualizer">
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+            <div class="viz-bar"></div>
+        </div>
+
+        <!-- Floating Tech Badges -->
+        <div class="floating-badges">
+            <span class="float-badge badge-1"><i class="fab fa-laravel"></i></span>
+            <span class="float-badge badge-2"><i class="fab fa-python"></i></span>
+            <span class="float-badge badge-3"><i class="fab fa-js"></i></span>
+            <span class="float-badge badge-4"><i class="fas fa-database"></i></span>
+            <span class="float-badge badge-5"><i class="fab fa-git-alt"></i></span>
+            <span class="float-badge badge-6"><i class="fab fa-html5"></i></span>
+        </div>
+
+        <!-- Hero Card -->
+        <div class="hero-card-wrapper" id="heroCardWrapper">
+            <div class="hero-card" id="heroCard">
+                <div class="hero-card-border"></div>
+                <div class="hero-card-inner">
+                    <div class="hero-status-badge">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Available for Freelance</span>
+                    </div>
+                    <span class="hero-greeting" id="heroGreeting">Hello, I'm</span>
+                    <h1 class="hero-name glitch-text" data-text="Achmad Septian Mulia">Achmad Septian Mulia</h1>
+                    <div class="hero-divider"></div>
+                    <div class="hero-rotating-wrapper">
+                        <span class="hero-rotating-label">I build</span>
+                        <div class="hero-rotating-slot">
+                            <span class="hero-rotating-word" id="rotatingWord">Web Applications</span>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#portofolio" class="hero-cta-primary"><i class="fas fa-rocket"></i> View My Work</a>
+                        <a href="#kontak" class="hero-cta-secondary"><i class="fas fa-paper-plane"></i> Contact Me</a>
+                    </div>
+                    <div class="hero-social-row">
+                        <a href="https://github.com/i4nseptian" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/ianseptian77" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://wa.me/6289694899767" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:i4nseptian77@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <span>Scroll Down</span>
+            <div class="scroll-arrow-line">
+                <div class="scroll-dot"></div>
+            </div>
+        </div>
+
+        <!-- Wave Divider -->
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+                <path d="M0,50 C240,100 480,0 720,50 C960,100 1200,0 1440,50 L1440,100 L0,100 Z" fill="var(--darker-blue)"></path>
+            </svg>
         </div>
     </header>
 
-    <!-- Tentang Saya -->
+    <!-- About Me -->
     <section id="tentang" class="tentang">
         <div class="container">
-            <h2 class="section-title animate__animated animate__fadeIn">Tentang Saya</h2>
+            <h2 class="section-title" data-animate="animate__fadeIn">About Me</h2>
             <div class="profile-container">
                 <div class="content-section">
-                    <div class="card animate__animated animate__fadeInLeft animate__delay-1s">
-                        <h4 class="item-title">Deskripsi Diri</h4>
-                        <p class="item-subtitle">ciao! Nama saya Ian, 19 tahun, mahasiswa Bisnis Digital di Universitas Negeri Makassar. Musik dan olahraga bukan sekadar hobi, tapi bagian dari hidup saya. Nada dan irama mengisi hari-hari saya, sementara tinju mengajarkan disiplin dan ketangguhan. Saya percaya keseimbangan antara pikiran, tubuh, dan passion adalah kunci untuk terus maju. Tinggal di Makassar, saya selalu mencari cara untuk berkembang dan mengekspresikan diri. Dan satu hal lagi kopi adalah bahan bakar saya. Secangkir kopi yang baik selalu jadi teman terbaik di setiap perjalanan hidup Saya!</p>
+                    <div class="card" data-animate="animate__fadeInLeft" data-delay="0.1s">
+                        <h4 class="item-title">Web Developer & Digital Business</h4>
+                        <p class="item-subtitle">Web Developer and Digital Business student with experience building web applications using <strong>Laravel</strong> and <strong>Django</strong>. Skilled in developing e-commerce platforms, POS systems, business websites, landing pages, and interactive dashboards. Passionate about combining web development with digital marketing to create solutions that are both technically effective and business-oriented.</p>
                     </div>
-                    
-                    <div class="card animate__animated animate__fadeInLeft animate__delay-2s">
-                        <h3 class="section-title">Pendidikan</h3>
-                        <h4 class="item-title">S1 Bisnis Digital</h4>
-                        <p class="item-subtitle">Universitas Negeri Makassar, 2023-Sekarang</p>
-                        <p class="date">📚 Sedang menempuh semester 4
-                                        📌 Fokus pada bidang teknologi digital, bisnis, dan inovasi</p>
+
+                    <div class="card" data-animate="animate__fadeInLeft" data-delay="0.2s">
+                        <h3 class="section-title">My Approach</h3>
+                        <div class="approach-grid">
+                            <div class="approach-item">
+                                <i class="fas fa-comments"></i>
+                                <div>
+                                    <h4>Understand First, Build Second</h4>
+                                    <p>I start every project by deeply understanding your business goals, target audience, and what success looks like for you.</p>
+                                </div>
+                            </div>
+                            <div class="approach-item">
+                                <i class="fas fa-code"></i>
+                                <div>
+                                    <h4>Clean & Maintainable Code</h4>
+                                    <p>Every line of code is written to be scalable, well-documented, and easy for any developer to pick up later.</p>
+                                </div>
+                            </div>
+                            <div class="approach-item">
+                                <i class="fas fa-chart-line"></i>
+                                <div>
+                                    <h4>Business-First Thinking</h4>
+                                    <p>I don't just build what you ask for — I build what your business actually needs to grow and convert.</p>
+                                </div>
+                            </div>
+                            <div class="approach-item">
+                                <i class="fas fa-handshake"></i>
+                                <div>
+                                    <h4>Clear Communication</h4>
+                                    <p>Regular updates, honest timelines, and no technical jargon. You'll always know where your project stands.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="card animate__animated animate__fadeInLeft animate__delay-3s">
-                        <h3 class="section-title">Organisasi</h3>
-                        <h4 class="item-title">Himpunan Mahasiswa Bisnis Digital</h4>
-                        <p class="item-subtitle">Anggota Aktif- 2023 sampai sekarang</p>
-                        <p class="date">📌 Berkontribusi dalam kegiatan internal dan eksternal organisasi
-                            📌 Terlibat dalam perencanaan acara, diskusi strategis, dan pengembangan minat mahasiswa</p>
+
+                    <div class="card" data-animate="animate__fadeInLeft" data-delay="0.3s">
+                        <h3 class="section-title">Additional Strengths</h3>
+                        <div class="strengths-grid">
+                            <span><i class="fas fa-bullhorn"></i> Digital Marketing</span>
+                            <span><i class="fas fa-pen-fancy"></i> Content Planning & Strategy</span>
+                            <span><i class="fas fa-hashtag"></i> Social Media Management</span>
+                            <span><i class="fas fa-chart-pie"></i> Market Research</span>
+                            <span><i class="fas fa-palette"></i> UI/UX Awareness</span>
+                            <span><i class="fas fa-search-dollar"></i> SEO Basics</span>
+                        </div>
                     </div>
                 </div>
-                
+
                 <div class="photo-section">
-                    <img src="img/foto fakultas.jpg" alt="Achmad Septian Mulia" class="profile-photo animate__animated animate__zoomIn animate__delay-1s">
-                    <h3 class="animate__animated animate__fadeIn animate__delay-2s">Achmad Septian Mulia</h3>
+                    <img src="img/foto fakultas.jpg" alt="Achmad Septian Mulia" class="profile-photo"
+                        data-animate="animate__zoomIn" data-delay="0.1s">
+                    <h3 data-animate="animate__fadeIn" data-delay="0.3s">Achmad Septian Mulia</h3>
+                    <p class="photo-subtitle" data-animate="animate__fadeIn" data-delay="0.4s">Web Developer | Musician | Digital Business</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pencapaian (Simplified Animations) -->
+    <!-- Services -->
     <section id="pencapaian" class="pencapaian">
         <div class="container">
-            <h2 class="section-title animate__animated animate__fadeIn">Pencapaian</h2>
+            <h2 class="section-title" data-animate="animate__fadeIn">What I Do</h2>
             <div class="pencapaian-container">
-                <div class="pencapaian-item animate__animated animate__fadeIn">
-                    <i class="fas fa-medal"></i>
-                    <h3>Ranking 3 waktu sdt</h3>
-                    <p>2020</p>
+                <div class="pencapaian-item" data-animate="animate__fadeIn" data-delay="0.1s">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>E-Commerce</h3>
+                    <p>Building e-commerce platforms with Django — product management, cart, checkout, and authentication</p>
                 </div>
-                <div class="pencapaian-item animate__animated animate__fadeIn animate__delay-1s">
-                    <i class="fas fa-code"></i>
-                    <h3>Best Web Developer</h3>
-                    <p>2021</p>
+                <div class="pencapaian-item" data-animate="animate__fadeIn" data-delay="0.2s">
+                    <i class="fas fa-cash-register"></i>
+                    <h3>POS Systems</h3>
+                    <p>POS Management System with Laravel — transactions, inventory, and real-time sales reporting</p>
                 </div>
-                <div class="pencapaian-item animate__animated animate__fadeIn animate__delay-2s">
-                    <i class="fas fa-lightbulb"></i>
-                    <h3>Innovation Award</h3>
-                    <p>2022</p>
+                <div class="pencapaian-item" data-animate="animate__fadeIn" data-delay="0.3s">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Data Dashboards</h3>
+                    <p>Interactive dashboards & data visualization for business monitoring and performance analytics</p>
+                </div>
+                <div class="pencapaian-item" data-animate="animate__fadeIn" data-delay="0.4s">
+                    <i class="fas fa-globe"></i>
+                    <h3>Business Websites</h3>
+                    <p>Responsive business websites, landing pages, and portfolios optimized for conversion</p>
                 </div>
             </div>
         </div>
     </section>
-    <section id="pencapaian" class="pencapaian">
+
+    <!-- Skills -->
+    <section id="skills" class="skills">
         <div class="container">
-            <div class="pencapaian-container">
-                <div class="pencapaian-item animate__animated animate__fadeIn">
-                    <i class="fas fa-medal"></i>
-                    <h3>Ranking 3 waktu sdt</h3>
-                    <p>2020</p>
+            <h2 class="section-title" data-animate="animate__fadeIn">Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-item" data-animate="animate__fadeInLeft" data-delay="0.1s">
+                    <div class="skill-info">
+                        <span class="skill-name"><i class="fab fa-html5"></i> HTML5 / CSS3</span>
+                        <span class="skill-percent">90%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
                 </div>
-                <div class="pencapaian-item animate__animated animate__fadeIn animate__delay-1s">
+                <div class="skill-item" data-animate="animate__fadeInRight" data-delay="0.1s">
+                    <div class="skill-info">
+                        <span class="skill-name"><i class="fab fa-js"></i> JavaScript</span>
+                        <span class="skill-percent">80%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
+                </div>
+                <div class="skill-item" data-animate="animate__fadeInLeft" data-delay="0.2s">
+                    <div class="skill-info">
+                        <span class="skill-name"><i class="fab fa-laravel"></i> Laravel Framework</span>
+                        <span class="skill-percent">82%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="82"></div></div>
+                </div>
+                <div class="skill-item" data-animate="animate__fadeInRight" data-delay="0.2s">
+                    <div class="skill-info">
+                        <span class="skill-name"><i class="fab fa-python"></i> Django Framework</span>
+                        <span class="skill-percent">78%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="78"></div></div>
+                </div>
+                <div class="skill-item" data-animate="animate__fadeInLeft" data-delay="0.3s">
+                    <div class="skill-info">
+                        <span class="skill-name"><i class="fas fa-database"></i> Database Design & CRUD</span>
+                        <span class="skill-percent">85%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
+                </div>
+                <div class="skill-item" data-animate="animate__fadeInRight" data-delay="0.3s">
+                    <div class="skill-info">
+                        <span class="skill-name"><i class="fab fa-git-alt"></i> Git & GitHub</span>
+                        <span class="skill-percent">75%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div>
+                </div>
+                <div class="skill-item" data-animate="animate__fadeInLeft" data-delay="0.4s">
+                    <div class="skill-info">
+                        <span class="skill-name"><i class="fas fa-mobile-alt"></i> Responsive Web Design</span>
+                        <span class="skill-percent">88%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="88"></div></div>
+                </div>
+                <div class="skill-item" data-animate="animate__fadeInRight" data-delay="0.4s">
+                    <div class="skill-info">
+                        <span class="skill-name"><i class="fas fa-plug"></i> REST API Integration</span>
+                        <span class="skill-percent">70%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="70"></div></div>
+                </div>
+                <div class="skill-item" data-animate="animate__fadeInLeft" data-delay="0.5s">
+                    <div class="skill-info">
+                        <span class="skill-name"><i class="fas fa-chart-line"></i> Dashboard & Data Viz</span>
+                        <span class="skill-percent">76%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="76"></div></div>
+                </div>
+                <div class="skill-item" data-animate="animate__fadeInRight" data-delay="0.5s">
+                    <div class="skill-info">
+                        <span class="skill-name"><i class="fas fa-user-lock"></i> Auth & User Management</span>
+                        <span class="skill-percent">80%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Counter -->
+    <section id="stats" class="stats">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item" data-animate="animate__fadeInUp" data-delay="0.1s">
                     <i class="fas fa-code"></i>
-                    <h3>Best Web Developer</h3>
-                    <p>2021</p>
+                    <h3 class="stat-number" data-target="15">0</h3>
+                    <p>Projects Done</p>
                 </div>
-                <div class="pencapaian-item animate__animated animate__fadeIn animate__delay-2s">
-                    <i class="fas fa-lightbulb"></i>
-                    <h3>Innovation Award</h3>
-                    <p>2022</p>
+                <div class="stat-item" data-animate="animate__fadeInUp" data-delay="0.2s">
+                    <i class="fas fa-users"></i>
+                    <h3 class="stat-number" data-target="10">0</h3>
+                    <p>Happy Clients</p>
+                </div>
+                <div class="stat-item" data-animate="animate__fadeInUp" data-delay="0.3s">
+                    <i class="fas fa-layer-group"></i>
+                    <h3 class="stat-number" data-target="4">0</h3>
+                    <p>Tech Stacks</p>
+                </div>
+                <div class="stat-item" data-animate="animate__fadeInUp" data-delay="0.4s">
+                    <i class="fas fa-mug-hot"></i>
+                    <h3 class="stat-number" data-target="500">0</h3>
+                    <p>Cups of Coffee</p>
                 </div>
             </div>
         </div>
@@ -158,31 +366,100 @@
     <!-- Portfolio -->
     <section id="portofolio" class="portofolio">
         <div class="container">
-            <h2 class="section-title animate__animated animate__fadeIn">Portofolio</h2>
-            <div class="portofolio-container">
-                <div class="portofolio-item animate__animated animate__zoomIn animate__delay-1s">
-                    <img src="img/foto band.jpg" alt="Performing on stage" onclick="openImage(this.src)">
-                </div>
-                <div class="portofolio-item animate__animated animate__zoomIn animate__delay-2s">
-                    <img src="img/foto inspire.jpg" alt="University campus" onclick="openImage(this.src)">
-                </div>
-                <div class="portofolio-item animate__animated animate__zoomIn animate__delay-3s">
-                    <img src="img/foto lavuvu.jpg" alt="Group photo" onclick="openImage(this.src)">
-                </div>
+            <h2 class="section-title" data-animate="animate__fadeIn">My Projects</h2>
+            <div class="project-filter" data-animate="animate__fadeIn" data-delay="0.1s">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="laravel">Laravel</button>
+                <button class="filter-btn" data-filter="django">Django</button>
+                <button class="filter-btn" data-filter="frontend">Frontend</button>
             </div>
-        </div>
-    </section>
-    <section id="portofolio" class="portofolio">
-        <div class="container">
             <div class="portofolio-container">
-                <div class="portofolio-item animate__animated animate__zoomIn animate__delay-1s">
-                    <img src="img/foto pengurus.jpg" alt="Performing on stage" onclick="openImage(this.src)">
+                <!-- Project 1: E-Commerce Django -->
+                <div class="project-card" data-category="django" data-animate="animate__fadeInUp" data-delay="0.1s">
+                    <div class="project-image">
+                        <img src="img/lokahome.png" alt="E-Commerce Django Project">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" title="Live Demo — Coming Soon" onclick="return false"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/i4nseptian/loka-keychain" class="project-link" title="View on GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <p class="project-desc">Full-stack e-commerce website built with Django. Features: product catalog, shopping cart, checkout system, user authentication, and order management.</p>
+                        <div class="project-tags">
+                            <span>Django</span><span>Python</span><span>SQLite</span><span>Bootstrap</span><span>Auth</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-small" title="Coming Soon" onclick="return false"><i class="fas fa-eye"></i> Live Demo</a>
+                            <a href="https://github.com/i4nseptian/loka-keychain" class="btn-small btn-outline" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="portofolio-item animate__animated animate__zoomIn animate__delay-2s">
-                    <img src="img/rosetta.jpg" alt="University campus" onclick="openImage(this.src)">
+
+                <!-- Project 2: POS Laravel -->
+                <div class="project-card" data-category="laravel" data-animate="animate__fadeInUp" data-delay="0.2s">
+                    <div class="project-image">
+                        <img src="img/foto pengurus.jpg" alt="POS Laravel Project">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" title="Live Demo — Coming Soon" onclick="return false"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/i4nseptian" class="project-link" title="View on GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Cashier (POS) Management System</h3>
+                        <p class="project-desc">Point of Sale system built with Laravel. Features: transaction processing, inventory management, sales reports, user roles, and real-time dashboard.</p>
+                        <div class="project-tags">
+                            <span>Laravel</span><span>PHP</span><span>MySQL</span><span>Blade</span><span>CRUD</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-small" title="Coming Soon" onclick="return false"><i class="fas fa-eye"></i> Live Demo</a>
+                            <a href="https://github.com/i4nseptian" class="btn-small btn-outline" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="portofolio-item animate__animated animate__zoomIn animate__delay-3s">
-                    <img src="img/solitaire 1.png" alt="Group photo" onclick="openImage(this.src)">
+
+                <!-- Project 3: Data Dashboard -->
+                <div class="project-card" data-category="laravel" data-animate="animate__fadeInUp" data-delay="0.3s">
+                    <div class="project-image">
+                        <img src="img/solitaire 1.png" alt="Data Dashboard Project">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" title="View Preview" onclick="return false"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/i4nseptian" class="project-link" title="View on GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Interactive Data Dashboard</h3>
+                        <p class="project-desc">Data visualization dashboard with interactive charts and analytics. Features: real-time data display, filterable reports, export to PDF/Excel, and role-based access.</p>
+                        <div class="project-tags">
+                            <span>Laravel</span><span>Chart.js</span><span>MySQL</span><span>Data Viz</span><span>Dashboard</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-small" title="Coming Soon" onclick="return false"><i class="fas fa-eye"></i> Preview</a>
+                            <a href="https://github.com/i4nseptian" class="btn-small btn-outline" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Business Website -->
+                <div class="project-card" data-category="frontend" data-animate="animate__fadeInUp" data-delay="0.4s">
+                    <div class="project-image">
+                        <img src="img/foto band.jpg" alt="Business Website Project">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link" title="Live Demo — Coming Soon" onclick="return false"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/i4nseptian" class="project-link" title="View on GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Responsive Business Website</h3>
+                        <p class="project-desc">Modern business landing page with responsive design, SEO optimization, contact form, and smooth animations. Built with digital marketing principles for maximum conversion.</p>
+                        <div class="project-tags">
+                            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive</span><span>SEO</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn-small" title="Coming Soon" onclick="return false"><i class="fas fa-eye"></i> Live Demo</a>
+                            <a href="https://github.com/i4nseptian" class="btn-small btn-outline" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -190,152 +467,256 @@
 
     <!-- Fullscreen Image Viewer -->
     <div id="fullscreen-container" class="fullscreen-view">
-        <img id="fullscreen-image" src="">
         <span class="close-btn" onclick="closeImage()">&times;</span>
-    </div>
-
-  <!-- Blog -->
-<section id="blog" class="blog">
-    <div class="container">
-        <h2 class="section-title animate__animated animate__fadeIn">Blog</h2>
-        <div class="blog-container">
-            <!-- Blog Item 1 - Link ke Blogger -->
-            <div class="blog-item-wrapper animate__animated animate__fadeInUp animate__delay-1s">
-                <a href="https://ianseptian77.blogspot.com/2025/04/dunia-musik-rock-sejarah-aliran-dan.html" class="blog-link" target="_blank">
-                    <div class="blog-item">
-                        <img src="img/foto sejarah rock.jpeg" alt="Sejarah Musik Rock">
-                        <div class="blog-content">
-                            <h3>Dunia Musik Rock - Sejarah, Aliran, dan Legenda</h3>
-                            <p>Sejarah singkat tentang dunia musik rock dan legendanya</p>
-                            <div class="blog-meta">
-                                <span><i class="fab fa-blogger"></i> Blogger</span>
-                                <span><i class="far fa-calendar"></i> 5 April 2023</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Blog Item 2 - Link ke Blogger -->
-            <div class="blog-item-wrapper animate__animated animate__fadeInUp animate__delay-2s">
-                <a href="https://ianseptian77.blogspot.com/2025/04/kopi-dan-sejarahnya-perjalanan-panjang.html" class="blog-link" target="_blank">
-                    <div class="blog-item">
-                        <img src="img/foto kopi.jpeg" alt="Kopi dan Sejarahnya">
-                        <div class="blog-content">
-                            <h3>Kopi dan Sejarahnya</h3>
-                            <p>Perjalanan Panjang Minuman Legenda</p>
-                            <div class="blog-meta">
-                                <span><i class="fab fa-blogger"></i> Blogger</span>
-                                <span><i class="far fa-calendar"></i> 12 Juni 2023</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Blog Item 3 - Link ke Blogger -->
-            <div class="blog-item-wrapper animate__animated animate__fadeInUp animate__delay-3s">
-                <a href="https://ianseptian77.blogspot.com/2025/04/web-development-journey-dari-pemula.html" class="blog-link" target="_blank">
-                    <div class="blog-item">
-                        <img src="img/foto web development.jpeg" alt="Web Development">
-                        <div class="blog-content">
-                            <h3>Web Development Journey</h3>
-                            <p>Perjalanan dari nol hingga menjadi web developer profesional</p>
-                            <div class="blog-meta">
-                                <span><i class="fab fa-blogger"></i> Blogger</span>
-                                <span><i class="far fa-calendar"></i> 23 Agustus 2023</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Tambahan: Tombol untuk melihat semua artikel di Blogger -->
-            <div class="view-all-blogs animate__animated animate__fadeInUp animate__delay-4s">
-                <a href="https://yourblogname.blogspot.com" class="btn-blogger" target="_blank">
-                    <i class="fab fa-blogger"></i> Lihat Semua Artikel di Blogger
-                </a>
-            </div>
+        <img id="fullscreen-image" src="" alt="Fullscreen View">
+        <div class="zoom-controls">
+            <button class="zoom-btn" onclick="zoomImage(1.2)" aria-label="Zoom In"><i class="fas fa-plus"></i></button>
+            <button class="zoom-btn" onclick="zoomImage(0.8)" aria-label="Zoom Out"><i class="fas fa-minus"></i></button>
+            <button class="zoom-btn" onclick="closeImage()" aria-label="Close"><i class="fas fa-times"></i></button>
         </div>
     </div>
-</section>
 
-    <!-- Kontak -->
-    <section id="kontak" class="kontak animate__animated animate__fadeIn">
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials">
         <div class="container">
-            <h2 class="section-title">Kontak</h2>
-            <div class="kontak-container">
-                <div class="kontak-info animate__animated animate__fadeInLeft animate__delay-1s">
-                    <h3>Mari Terhubung</h3>
-                    <ul>
-                        <li><i class="fas fa-envelope"></i> i4nseptian77@gmail.com</li>
-                        <li><i class="fas fa-phone"></i> +62 89884978767</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Makassar, Indonesia</li>
-                    </ul>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook animate__animated animate__bounce animate__infinite animate__slower"></i></a>
-                        <a href="#"><i class="fab fa-twitter animate__animated animate__bounce animate__infinite animate__slower animate__delay-1s"></i></a>
-                        <a href="#"><i class="fab fa-instagram animate__animated animate__bounce animate__infinite animate__slower animate__delay-2s"></i></a>
-                        <a href="#"><i class="fab fa-linkedin animate__animated animate__bounce animate__infinite animate__slower animate__delay-3s"></i></a>
+            <h2 class="section-title" data-animate="animate__fadeIn">What Clients Say</h2>
+            <div class="testimonials-container">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card" data-animate="animate__fadeInUp" data-delay="0.1s">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Built our entire e-commerce platform from scratch — product catalog, shopping cart, checkout, everything just works. Sales went up 40% in the first month. Professional, fast, and really understands what a business needs."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RA</div>
+                        <div class="author-info">
+                            <h4>Rizky Aditya</h4>
+                            <span>Owner, UrbanGoods Store</span>
+                        </div>
                     </div>
                 </div>
-                <div class="kontak-form animate__animated animate__fadeInRight animate__delay-1s">
-                    <form>
-                        <div class="form-group">
-                            <label for="nama">Nama</label>
-                            <input type="text" id="nama" required>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card" data-animate="animate__fadeInUp" data-delay="0.2s">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "The POS system he built for our café chain completely transformed how we operate. Real-time inventory tracking, instant sales reports, and the staff picked it up in minutes. Saved us hours of manual work every single day."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MP</div>
+                        <div class="author-info">
+                            <h4>Maya Putri</h4>
+                            <span>Manager, Kopi Nusantara Café</span>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" required>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card" data-animate="animate__fadeInUp" data-delay="0.3s">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Needed a business website that actually converts visitors into leads. He delivered a stunning, fast-loading site with SEO that got us to page one on Google within two months. Our inquiry rate tripled. Worth every rupiah."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DP</div>
+                        <div class="author-info">
+                            <h4>Dimas Pratama</h4>
+                            <span>Founder, TechStart Indonesia</span>
                         </div>
-                        <div class="form-group">
-                            <label for="pesan">Pesan</label>
-                            <textarea id="pesan" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn animate__animated animate__pulse animate__infinite animate__slower">Kirim Pesan</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="animate__animated animate__fadeInUp">
+    <!-- Blog -->
+    <section id="blog" class="blog">
         <div class="container">
-            <p>&copy; 2024 Rock Portfolio. All rights reserved.</p>
+            <h2 class="section-title" data-animate="animate__fadeIn">Blog</h2>
+            <div class="blog-container">
+                <!-- Blog Item 1 -->
+                <div class="blog-item-wrapper" data-animate="animate__fadeInUp" data-delay="0.1s">
+                    <a href="https://ianseptian77.blogspot.com/2025/04/dunia-musik-rock-sejarah-aliran-dan.html"
+                        class="blog-link" target="_blank">
+                        <div class="blog-item">
+                            <img src="img/foto sejarah rock.jpeg" alt="Rock Music History">
+                            <div class="blog-content">
+                                <h3>Rock Music World - History, Genres, and Legends</h3>
+                                <p>A brief history of rock music and its legendary figures</p>
+                                <div class="blog-meta">
+                                    <span><i class="fab fa-blogger"></i> Blogger</span>
+                                    <span><i class="far fa-calendar"></i> 5 April 2023</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Blog Item 2 -->
+                <div class="blog-item-wrapper" data-animate="animate__fadeInUp" data-delay="0.2s">
+                    <a href="https://ianseptian77.blogspot.com/2025/04/kopi-dan-sejarahnya-perjalanan-panjang.html"
+                        class="blog-link" target="_blank">
+                        <div class="blog-item">
+                            <img src="img/foto kopi.jpeg" alt="Coffee History">
+                            <div class="blog-content">
+                                <h3>Coffee and Its History</h3>
+                                <p>The Long Journey of a Legendary Drink</p>
+                                <div class="blog-meta">
+                                    <span><i class="fab fa-blogger"></i> Blogger</span>
+                                    <span><i class="far fa-calendar"></i> 12 Juni 2023</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Blog Item 3 -->
+                <div class="blog-item-wrapper" data-animate="animate__fadeInUp" data-delay="0.3s">
+                    <a href="https://ianseptian77.blogspot.com/2025/04/web-development-journey-dari-pemula.html"
+                        class="blog-link" target="_blank">
+                        <div class="blog-item">
+                            <img src="img/foto web development.jpeg" alt="Web Development Journey">
+                            <div class="blog-content">
+                                <h3>Web Development Journey</h3>
+                                <p>From zero to becoming a professional web developer</p>
+                                <div class="blog-meta">
+                                    <span><i class="fab fa-blogger"></i> Blogger</span>
+                                    <span><i class="far fa-calendar"></i> 23 Agustus 2023</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- View all articles on Blogger -->
+                <div class="view-all-blogs" data-animate="animate__fadeInUp" data-delay="0.4s">
+                    <a href="https://ianseptian77.blogspot.com" class="btn-blogger" target="_blank">
+                        <i class="fab fa-blogger"></i> View All Articles on Blogger
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="kontak" class="kontak">
+        <div class="container">
+            <h2 class="section-title" data-animate="animate__fadeIn">Contact</h2>
+            <div class="kontak-container">
+                <div class="kontak-info" data-animate="animate__fadeInLeft" data-delay="0.1s">
+                    <h3>Let's Connect</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> i4nseptian77@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +62 89694899767</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Makassar, Indonesia</li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="https://github.com/i4nseptian" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/ianseptian77" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/i4nseptian._/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://ianseptian77.blogspot.com" target="_blank" rel="noopener" aria-label="Blogger"><i class="fab fa-blogger"></i></a>
+                        <a href="mailto:i4nseptian77@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://wa.me/6289694899767" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="kontak-form" data-animate="animate__fadeInRight" data-delay="0.1s">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="nama">Name</label>
+                            <input type="text" id="nama" placeholder="Enter your name" required>
+                            <span class="form-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="Enter your email" required>
+                            <span class="form-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="pesan">Message</label>
+                            <textarea id="pesan" rows="5" placeholder="Write your message..." required></textarea>
+                            <span class="form-error"></span>
+                        </div>
+                        <button type="submit" class="btn">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loader" style="display:none;"><i class="fas fa-spinner fa-spin"></i> Sending...</span>
+                        </button>
+                    </form>
+                    <div class="form-success" style="display:none;">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Message Sent!</h3>
+                        <p>Thank you for reaching out. I'll get back to you as soon as possible.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-animate="animate__fadeInUp">
+                <span class="availability-badge">
+                    <span class="pulse-dot"></span> Available for Freelance Projects
+                </span>
+                <h2>Ready to Build Something <span class="cta-highlight">Great?</span></h2>
+                <p>Let's turn your idea into a powerful web application. Whether it's an e-commerce platform, a POS system, or a business dashboard — I'll build it clean, fast, and exactly how you need it.</p>
+                <div class="cta-buttons">
+                    <a href="#kontak" class="btn btn-large">
+                        <i class="fas fa-paper-plane"></i> Start a Project
+                    </a>
+                    <a href="https://wa.me/6289694899767" class="btn btn-outline btn-large" target="_blank" rel="noopener">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                </div>
+                <p class="cta-note">No strings attached — let's just talk about your project first.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer data-animate="animate__fadeInUp">
+        <div class="container">
+            <p>&copy; 2024 RockFolio. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Floating Music Player Widget -->
+    <div class="music-player-widget">
+        <div class="music-player-disk">
+            <img src="img/ace_of_spades-removebg-preview.png" alt="Vinyl" class="vinyl-disk">
+            <div class="disk-center"></div>
+        </div>
+        <div class="music-player-track-info">
+            <span class="track-title">Ace of Spades</span>
+            <span class="track-artist">Motörhead</span>
+        </div>
+        <div class="music-player-visualizer">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <button id="musicToggleBtn" class="music-player-btn" aria-label="Play Music">
+            <i class="fas fa-play"></i>
+        </button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="js/gsap-animations.js"></script>
     <script src="js/script.js"></script>
-    <script>
-        // Image Viewer Functionality
-        function openImage(src) {
-            const fullscreenImg = document.getElementById('fullscreen-image');
-            fullscreenImg.src = src;
-            document.getElementById('fullscreen-container').style.display = 'flex';
-            fullscreenImg.classList.add('animate__animated', 'animate__zoomIn');
-        }
 
-        function closeImage() {
-            document.getElementById('fullscreen-container').style.display = 'none';
-        }
-
-        // Close when clicking outside image
-        document.getElementById('fullscreen-container').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeImage();
-            }
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 </body>
+
 </html>
