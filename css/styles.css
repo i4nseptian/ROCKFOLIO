@@ -765,13 +765,6 @@ section:not(.stats):not(.header)::before {
         -2px 0 #00ffff;
 }
 
-.hero-divider {
-    width: 60px;
-    height: 3px;
-    background: var(--accent-color);
-    border-radius: 3px;
-}
-
 /* --- Rotating Taglines --- */
 .hero-rotating-wrapper {
     display: flex;

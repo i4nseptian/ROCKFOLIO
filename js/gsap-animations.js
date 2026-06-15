@@ -252,24 +252,13 @@ function initParallax() {
   if (!hero) return;
 
   gsap.to('.hero-card-wrapper', {
-    y: 40,
+    y: 15,
     ease: 'none',
     scrollTrigger: {
       trigger: hero,
-      start: 'top top',
+      start: 'top 20%',
       end: 'bottom top',
       scrub: 1.5
-    }
-  });
-
-  gsap.to('.hero-name', {
-    y: 20, scale: 0.98,
-    ease: 'none',
-    scrollTrigger: {
-      trigger: hero,
-      start: 'top top',
-      end: 'bottom top',
-      scrub: 1
     }
   });
 
