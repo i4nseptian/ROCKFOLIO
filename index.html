@@ -745,6 +745,27 @@
     <button id="backToTop" class="back-to-top" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
     </button>
+
+    <!-- Project Detail Modal -->
+    <div id="projectModal" class="project-modal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-container">
+            <button class="modal-close" id="modalClose" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-content">
+                <div class="modal-image">
+                    <img id="modalImage" src="" alt="">
+                </div>
+                <div class="modal-body">
+                    <h2 id="modalTitle" class="modal-title"></h2>
+                    <p id="modalDesc" class="modal-desc"></p>
+                    <div class="modal-tags" id="modalTags"></div>
+                    <div class="modal-links" id="modalLinks"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

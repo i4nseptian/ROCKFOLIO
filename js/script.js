@@ -672,3 +672,91 @@ if (filterBtns.length > 0 && projectCards.length > 0) {
     }
     scheduleGlitch();
 })();
+
+// ==========================================
+// PROJECT DETAIL MODAL
+// ==========================================
+const projectModal = document.getElementById('projectModal');
+const modalOverlay = document.getElementById('modalOverlay');
+const modalClose = document.getElementById('modalClose');
+const modalImage = document.getElementById('modalImage');
+const modalTitle = document.getElementById('modalTitle');
+const modalDesc = document.getElementById('modalDesc');
+const modalTags = document.getElementById('modalTags');
+const modalLinks = document.getElementById('modalLinks');
+
+function openProjectModal(card) {
+    const img = card.querySelector('.project-image img');
+    const title = card.querySelector('.project-title');
+    const desc = card.querySelector('.project-desc');
+    const tags = card.querySelectorAll('.project-tags span');
+    const btns = card.querySelectorAll('.project-links a');
+
+    modalImage.src = img ? img.src : '';
+    modalImage.alt = img ? img.alt : '';
+    modalTitle.textContent = title ? title.textContent : '';
+    modalDesc.textContent = desc ? desc.textContent : '';
+
+    modalTags.innerHTML = '';
+    tags.forEach(t => {
+        const span = document.createElement('span');
+        span.textContent = t.textContent;
+        modalTags.appendChild(span);
+    });
+
+    modalLinks.innerHTML = '';
+    btns.forEach(b => {
+        const a = document.createElement('a');
+        a.href = b.href;
+        a.className = b.className;
+        a.innerHTML = b.innerHTML;
+        if (b.getAttribute('onclick') === 'return false') {
+            a.setAttribute('onclick', 'return false');
+        }
+        if (b.classList.contains('btn-outline')) {
+            a.target = '_blank';
+            a.rel = 'noopener';
+        }
+        modalLinks.appendChild(a);
+    });
+
+    projectModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    gsap.fromTo('.modal-container',
+        { scale: 0.9, opacity: 0, y: 30 },
+        { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' }
+    );
+    gsap.fromTo('.modal-overlay',
+        { opacity: 0 },
+        { opacity: 1, duration: 0.3 }
+    );
+}
+
+function closeProjectModal() {
+    gsap.to('.modal-container', {
+        scale: 0.9, opacity: 0, y: 20, duration: 0.25, ease: 'power2.in',
+        onComplete: () => {
+            projectModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    gsap.to('.modal-overlay', { opacity: 0, duration: 0.2 });
+}
+
+document.querySelectorAll('.project-card').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function(e) {
+        if (e.target.closest('.project-overlay a') || e.target.closest('.project-links a')) return;
+        openProjectModal(this);
+    });
+});
+
+if (modalClose) modalClose.addEventListener('click', closeProjectModal);
+if (modalOverlay) modalOverlay.addEventListener('click', closeProjectModal);
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && projectModal && projectModal.classList.contains('active')) {
+        closeProjectModal();
+    }
+});
