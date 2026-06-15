@@ -1,0 +1,32 @@
+schema_version: 1
+module_path: ""
+title: Rockfolio Personal Portfolio
+scope:
+    - blog/
+    - css/
+    - js/
+    - index.html
+    - .vscode\settings.json
+    - audio\Ace Of Spades.mp3
+    - blog\blog1.html
+    - blog\blog2.html
+    - blog\blog3.html
+    - css\blog.css
+    - css\styles.css
+    - fonts\Metal Mania.ttf
+    - img\ace_of_spades-removebg-preview.png
+    - img\foto band.jpg
+    - img\foto fakultas.jpg
+    - img\foto inspire.jpg
+    - img\foto kopi.jpeg
+    - img\foto lavuvu.jpg
+    - img\foto pengurus.jpg
+    - img\foto sejarah rock.jpeg
+    - img\foto web development.jpeg
+    - img\rock walpaper.png
+    - img\rosetta.jpg
+    - img\solitaire 1.png
+    - js\script.js
+source_files: []
+depends_on: []
+related_to: []

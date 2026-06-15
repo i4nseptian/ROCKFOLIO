@@ -541,6 +541,12 @@ function animateGlow() {
 
 animateGlow();
 
+// Cursor grow on hoverable elements
+document.querySelectorAll('a, button, .project-card, .skill-item, .testimonial-card').forEach(el => {
+    el.addEventListener('mouseenter', () => { cursorGlow.style.width = '40px'; cursorGlow.style.height = '40px'; });
+    el.addEventListener('mouseleave', () => { cursorGlow.style.width = '20px'; cursorGlow.style.height = '20px'; });
+});
+
 // Hide glow when not on page
 document.addEventListener('mouseleave', () => {
     cursorGlow.style.opacity = '0';
@@ -548,6 +554,23 @@ document.addEventListener('mouseleave', () => {
 
 document.addEventListener('mouseenter', () => {
     cursorGlow.style.opacity = '1';
+});
+
+// ==========================================
+// MAGNETIC BUTTON EFFECT (MotionFolio inspired)
+// ==========================================
+document.querySelectorAll('.hero-cta-primary, .hero-cta-secondary').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+        btn.style.transform = '';
+        btn.style.transition = 'transform 0.4s ease-out';
+        setTimeout(() => { btn.style.transition = ''; }, 400);
+    });
 });
 
 // ==========================================
