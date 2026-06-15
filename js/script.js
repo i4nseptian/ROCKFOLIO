@@ -779,7 +779,79 @@ if (modalClose) modalClose.addEventListener('click', closeProjectModal);
 if (modalOverlay) modalOverlay.addEventListener('click', closeProjectModal);
 
 document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && projectModal && projectModal.classList.contains('active')) {
-        closeProjectModal();
+    if (e.key === 'Escape') {
+        if (projectModal && projectModal.classList.contains('active')) closeProjectModal();
+        if (blogModal && blogModal.classList.contains('active')) closeBlogModal();
     }
 });
+
+// ==========================================
+// BLOG DETAIL MODAL
+// ==========================================
+const blogModal = document.getElementById('blogModal');
+const blogModalOverlay = document.getElementById('blogModalOverlay');
+const blogModalClose = document.getElementById('blogModalClose');
+const blogModalImage = document.getElementById('blogModalImage');
+const blogModalTitle = document.getElementById('blogModalTitle');
+const blogModalDesc = document.getElementById('blogModalDesc');
+const blogModalMeta = document.getElementById('blogModalMeta');
+const blogModalLinks = document.getElementById('blogModalLinks');
+
+function openBlogModal(wrapper) {
+    const title = wrapper.dataset.blogTitle;
+    const desc = wrapper.dataset.blogDesc;
+    const url = wrapper.dataset.blogUrl;
+    const image = wrapper.dataset.blogImage;
+    const date = wrapper.dataset.blogDate;
+    const source = wrapper.dataset.blogSource;
+
+    blogModalImage.src = image;
+    blogModalImage.alt = title;
+    blogModalTitle.textContent = title;
+    blogModalDesc.textContent = desc;
+
+    blogModalMeta.innerHTML = `
+        <span><i class="far fa-calendar"></i> ${date}</span>
+        <span><i class="fab fa-blogger"></i> ${source}</span>
+    `;
+
+    blogModalLinks.innerHTML = `
+        <a href="${url}" class="hero-cta-primary btn-small" target="_blank" rel="noopener">
+            <i class="fas fa-external-link-alt"></i> Read Full Article
+        </a>
+    `;
+
+    blogModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    gsap.fromTo('#blogModal .modal-container',
+        { scale: 0.9, opacity: 0, y: 30 },
+        { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' }
+    );
+    gsap.fromTo('#blogModal .modal-overlay',
+        { opacity: 0 },
+        { opacity: 1, duration: 0.3 }
+    );
+}
+
+function closeBlogModal() {
+    gsap.to('#blogModal .modal-container', {
+        scale: 0.9, opacity: 0, y: 20, duration: 0.25, ease: 'power2.in',
+        onComplete: () => {
+            blogModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    gsap.to('#blogModal .modal-overlay', { opacity: 0, duration: 0.2 });
+}
+
+document.querySelectorAll('.blog-item-wrapper').forEach(wrapper => {
+    wrapper.style.cursor = 'pointer';
+    wrapper.addEventListener('click', function(e) {
+        if (e.target.closest('a')) return;
+        openBlogModal(this);
+    });
+});
+
+if (blogModalClose) blogModalClose.addEventListener('click', closeBlogModal);
+if (blogModalOverlay) blogModalOverlay.addEventListener('click', closeBlogModal);
