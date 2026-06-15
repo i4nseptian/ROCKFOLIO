@@ -126,7 +126,7 @@ window.addEventListener('load', () => {
   gsap.set('.float-badge', { scale: 0, opacity: 0 });
   gsap.set('.viz-bar', { scaleY: 0, transformOrigin: 'bottom center', opacity: 0 });
   gsap.set('.hero-card-wrapper', { scale: 0.85, opacity: 0, y: 30 });
-  gsap.set('.hero-status-badge, .hero-greeting, .hero-name, .hero-divider, .hero-rotating-wrapper, .hero-buttons, .hero-social-row', { opacity: 0, y: 25 });
+  gsap.set('.hero-status-badge, .hero-greeting, .hero-name, .hero-rotating-wrapper, .hero-buttons, .hero-social-row', { opacity: 0, y: 25 });
   gsap.set('.scroll-indicator', { opacity: 0 });
   gsap.set('.hero-spotlight', { opacity: 0 });
   gsap.set('[data-animate]', { opacity: 0, willChange: 'transform, opacity' });
@@ -162,7 +162,6 @@ function startHero() {
   .to('.hero-status-badge', { opacity: 1, y: 0, duration: 0.4 }, '-=0.2')
   .to('.hero-greeting', { opacity: 1, y: 0, duration: 0.5 }, '-=0.1')
   .to('.hero-name', { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out' }, '-=0.2')
-  .to('.hero-divider', { opacity: 1, y: 0, duration: 0.5 }, '-=0.3')
   .to('.hero-rotating-wrapper', {
     opacity: 1, y: 0, duration: 0.5,
     onStart: () => initRotatingTextGSAP()
