@@ -114,12 +114,7 @@ function initGeoShapes() {
 function setGreeting() {
   const el = document.getElementById('heroGreeting');
   if (!el) return;
-  const h = new Date().getHours();
-  let text = 'Hello, I\'m';
-  if (h < 12) text = 'Good Morning, I\'m';
-  else if (h < 17) text = 'Good Afternoon, I\'m';
-  else text = 'Good Evening, I\'m';
-  el.textContent = text;
+  el.textContent = 'Hello, I\'m';
 }
 
 // ==========================================

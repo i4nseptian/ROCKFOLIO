@@ -288,22 +288,22 @@
             <span class="section-number" data-animate="animate__fadeIn">02 — Services</span>
             <h2 class="section-title" data-animate="animate__fadeIn">What I Do</h2>
             <div class="pencapaian-container">
-                <div class="pencapaian-item" data-animate="animate__fadeIn" data-delay="0.1s">
+                <div class="pencapaian-item" data-service="ecommerce" data-animate="animate__fadeIn" data-delay="0.1s">
                     <i class="fas fa-shopping-cart"></i>
                     <h3>E-Commerce</h3>
                     <p>Building e-commerce platforms with Django — product management, cart, checkout, and authentication</p>
                 </div>
-                <div class="pencapaian-item" data-animate="animate__fadeIn" data-delay="0.2s">
+                <div class="pencapaian-item" data-service="pos" data-animate="animate__fadeIn" data-delay="0.2s">
                     <i class="fas fa-cash-register"></i>
                     <h3>POS Systems</h3>
                     <p>POS Management System with Laravel — transactions, inventory, and real-time sales reporting</p>
                 </div>
-                <div class="pencapaian-item" data-animate="animate__fadeIn" data-delay="0.3s">
+                <div class="pencapaian-item" data-service="dashboard" data-animate="animate__fadeIn" data-delay="0.3s">
                     <i class="fas fa-chart-bar"></i>
                     <h3>Data Dashboards</h3>
                     <p>Interactive dashboards & data visualization for business monitoring and performance analytics</p>
                 </div>
-                <div class="pencapaian-item" data-animate="animate__fadeIn" data-delay="0.4s">
+                <div class="pencapaian-item" data-service="website" data-animate="animate__fadeIn" data-delay="0.4s">
                     <i class="fas fa-globe"></i>
                     <h3>Business Websites</h3>
                     <p>Responsive business websites, landing pages, and portfolios optimized for conversion</p>
@@ -830,8 +830,10 @@
                     <img id="modalImage" src="" alt="">
                 </div>
                 <div class="modal-body">
+                    <div class="modal-icon-badge" id="modalIconBadge"><i class="fas fa-code"></i></div>
                     <h2 id="modalTitle" class="modal-title"></h2>
                     <p id="modalDesc" class="modal-desc"></p>
+                    <div class="modal-section-header"><i class="fas fa-tags"></i> Technologies</div>
                     <div class="modal-tags" id="modalTags"></div>
                     <div class="modal-links" id="modalLinks"></div>
                 </div>
@@ -856,6 +858,22 @@
                     <p id="blogModalDesc" class="modal-desc"></p>
                     <div class="modal-links" id="blogModalLinks"></div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Detail Modal -->
+    <div id="serviceModal" class="svc-modal">
+        <div class="svc-modal-overlay" id="svcModalOverlay"></div>
+        <div class="svc-modal-container">
+            <button class="svc-modal-close" id="svcModalClose" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="svc-modal-content">
+                <div class="svc-modal-icon-box" id="svcModalIcon"><i class="fas fa-code"></i></div>
+                <h2 id="svcModalTitle" class="svc-modal-title"></h2>
+                <div class="svc-divider"></div>
+                <div class="svc-modal-body" id="svcModalBody"></div>
             </div>
         </div>
     </div>

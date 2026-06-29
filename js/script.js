@@ -714,6 +714,27 @@ const modalTitle = document.getElementById('modalTitle');
 const modalDesc = document.getElementById('modalDesc');
 const modalTags = document.getElementById('modalTags');
 const modalLinks = document.getElementById('modalLinks');
+const modalIconBadge = document.getElementById('modalIconBadge');
+
+const projectIcons = {
+  'e-commerce': 'fa-shopping-cart',
+  'pos': 'fa-cash-register',
+  'dashboard': 'fa-chart-bar',
+  'web': 'fa-globe',
+  'landing': 'fa-rocket',
+  'app': 'fa-mobile-alt',
+  'blog': 'fa-blog',
+  'api': 'fa-plug',
+  'default': 'fa-code'
+};
+
+function getProjectIcon(title) {
+  const t = (title || '').toLowerCase();
+  for (const [key, icon] of Object.entries(projectIcons)) {
+    if (t.includes(key)) return icon;
+  }
+  return projectIcons.default;
+}
 
 function openProjectModal(card) {
     const img = card.querySelector('.project-image img');
@@ -722,15 +743,20 @@ function openProjectModal(card) {
     const tags = card.querySelectorAll('.project-tags span');
     const btns = card.querySelectorAll('.project-links a');
 
+    const titleText = title ? title.textContent : '';
+
     modalImage.src = img ? img.src : '';
     modalImage.alt = img ? img.alt : '';
-    modalTitle.textContent = title ? title.textContent : '';
+    modalTitle.textContent = titleText;
     modalDesc.textContent = desc ? desc.textContent : '';
+
+    const iconClass = getProjectIcon(titleText);
+    modalIconBadge.innerHTML = '<i class="fas ' + iconClass + '"></i>';
 
     modalTags.innerHTML = '';
     tags.forEach(t => {
         const span = document.createElement('span');
-        span.textContent = t.textContent;
+        span.innerHTML = '<i class="fas fa-circle"></i> ' + t.textContent;
         modalTags.appendChild(span);
     });
 
@@ -943,9 +969,11 @@ function openSkillModal(key) {
   skillIcon.innerHTML = '<i class="fas ' + data.icon + '"></i>';
   skillTitle.textContent = data.title;
 
-  const skillsHtml = data.skills.map(s => '<span class="sm-skill-tag">' + s + '</span>').join('');
+  const skillIcons = ['fa-star', 'fa-bolt', 'fa-check', 'fa-cog', 'fa-chevron-right', 'fa-dot-circle'];
+  const skillsHtml = data.skills.map((s, i) => '<span class="sm-skill-tag"><i class="fas ' + skillIcons[i % skillIcons.length] + '"></i> ' + s + '</span>').join('');
   const toolsHtml = data.tools.map(t => '<span class="sm-tool-tag"><i class="fas fa-check-circle"></i> ' + t + '</span>').join('');
-  const workHtml = data.work.map(w => '<li>' + w + '</li>').join('');
+  const workIcons = ['fa-bullseye', 'fa-pen-fancy', 'fa-chart-line', 'fa-cogs', 'fa-check-double', 'fa-arrow-right'];
+  const workHtml = data.work.map((w, i) => '<li><i class="fas ' + workIcons[i % workIcons.length] + '"></i> ' + w + '</li>').join('');
 
   skillBody.innerHTML = `
     <div class="sm-section">
@@ -1013,5 +1041,125 @@ if (skillOverlay) skillOverlay.addEventListener('click', closeSkillModal);
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') {
     if (skillModal && skillModal.classList.contains('active')) closeSkillModal();
+    if (svcModal && svcModal.classList.contains('active')) closeServiceModal();
   }
 });
+
+// ==========================================
+// SERVICE DETAIL MODAL
+// ==========================================
+const serviceData = {
+  ecommerce: {
+    icon: 'fa-shopping-cart',
+    title: 'E-Commerce Development',
+    about: 'Saya membangun website e-commerce yang tidak hanya fokus pada tampilan, tetapi juga pengalaman belanja yang nyaman, aman, dan mudah digunakan. Saya memahami bagaimana menghubungkan kebutuhan bisnis dengan solusi digital sehingga website mampu meningkatkan penjualan sekaligus memberikan pengalaman terbaik bagi pelanggan.',
+    features: ['Product Catalog', 'Product Detail', 'Shopping Cart', 'Checkout Flow', 'Authentication', 'User Dashboard', 'Admin Dashboard', 'Product Management', 'Order Management', 'Inventory', 'Payment Integration Ready', 'Responsive Design'],
+    techs: ['Django', 'Laravel', 'MySQL', 'HTML', 'CSS', 'JavaScript', 'Bootstrap'],
+    workflow: ['Planning', 'UI Structure', 'Database Design', 'Backend Development', 'Frontend Integration', 'Testing', 'Deployment'],
+    focus: ['Clean UI', 'Responsive', 'Secure Authentication', 'Fast Performance', 'Easy Product Management', 'User-Friendly Experience']
+  },
+  pos: {
+    icon: 'fa-cash-register',
+    title: 'POS Systems',
+    about: 'Saya mengembangkan sistem Point of Sale yang membantu bisnis mengelola transaksi, stok, laporan penjualan, dan operasional harian secara lebih efisien. Saya selalu mengutamakan kemudahan penggunaan agar kasir maupun pemilik usaha dapat menggunakan sistem tanpa kesulitan.',
+    features: ['Sales Transaction', 'Product Management', 'Inventory', 'Stock Tracking', 'Purchase History', 'Customer Management', 'Sales Report', 'Dashboard Analytics', 'Authentication', 'Multi Role'],
+    techs: ['Laravel', 'PHP', 'MySQL', 'JavaScript', 'Bootstrap'],
+    workflow: ['Requirement Analysis', 'Database Design', 'Business Logic', 'Dashboard Development', 'Testing', 'Optimization'],
+    focus: ['Accurate Reports', 'Fast Transactions', 'Inventory Monitoring', 'Easy Management', 'Responsive Dashboard']
+  },
+  dashboard: {
+    icon: 'fa-chart-bar',
+    title: 'Data Dashboards',
+    about: 'Saya membuat dashboard interaktif yang membantu pengguna memahami data melalui visualisasi yang sederhana, informatif, dan mudah dipahami. Dashboard saya dirancang agar informasi penting dapat diakses secara real-time untuk mendukung pengambilan keputusan.',
+    features: ['Statistics Cards', 'Charts', 'Data Tables', 'Search', 'Filter', 'Export Data', 'Responsive Layout', 'User Management', 'Monitoring System'],
+    techs: ['Laravel', 'Django', 'Chart.js', 'JavaScript', 'MySQL'],
+    workflow: ['Collect Data', 'Design Dashboard', 'Data Processing', 'Visualization', 'Testing', 'Optimization'],
+    focus: ['Clean Visualization', 'Fast Access', 'Easy Navigation', 'Real-time Information', 'Better Decision Making']
+  },
+  website: {
+    icon: 'fa-globe',
+    title: 'Business Websites',
+    about: 'Saya membangun website perusahaan, UMKM, personal branding, maupun landing page yang mampu memperkuat identitas bisnis sekaligus meningkatkan kepercayaan pelanggan. Saya percaya website bukan sekadar tampilan, tetapi representasi profesional sebuah bisnis.',
+    features: ['Company Profile', 'Landing Page', 'Portfolio Website', 'Organization Website', 'Business Website', 'Event Website', 'Responsive Design', 'Contact Form', 'SEO Friendly', 'Interactive Animation', 'Fast Loading', 'Smooth Navigation', 'Mobile Friendly', 'Modern UI'],
+    techs: ['HTML', 'CSS', 'JavaScript', 'Laravel', 'Django'],
+    workflow: ['Research', 'Wireframe', 'Design', 'Development', 'Testing', 'Launch'],
+    focus: ['Modern Design', 'SEO Ready', 'High Performance', 'Mobile First', 'Business Oriented']
+  }
+};
+
+const svcModal = document.getElementById('serviceModal');
+const svcOverlay = document.getElementById('svcModalOverlay');
+const svcClose = document.getElementById('svcModalClose');
+const svcIcon = document.getElementById('svcModalIcon');
+const svcTitle = document.getElementById('svcModalTitle');
+const svcBody = document.getElementById('svcModalBody');
+
+function openServiceModal(key) {
+  const d = serviceData[key];
+  if (!d) return;
+
+  svcIcon.innerHTML = '<i class="fas ' + d.icon + '"></i>';
+  svcTitle.textContent = d.title;
+
+  const featuresHtml = d.features.map(f => '<span class="svc-chip">' + f + '</span>').join('');
+  const techsHtml = d.techs.map(t => '<span class="svc-tech">' + t + '</span>').join('');
+  const workflowHtml = d.workflow.map((w, i) => '<div class="svc-wf-item"><div class="svc-wf-dot"><span>' + (i + 1) + '</span></div><div class="svc-wf-line"></div><span>' + w + '</span></div>').join('');
+  const focusHtml = d.focus.map(f => '<li><i class="fas fa-check-circle"></i> ' + f + '</li>').join('');
+
+  svcBody.innerHTML = `
+    <div class="svc-section">
+      <h4 class="svc-section-title"><i class="fas fa-info-circle"></i> About</h4>
+      <p class="svc-about">${d.about}</p>
+    </div>
+    <div class="svc-section">
+      <h4 class="svc-section-title"><i class="fas fa-cubes"></i> What I Build</h4>
+      <div class="svc-chips">${featuresHtml}</div>
+    </div>
+    <div class="svc-section">
+      <h4 class="svc-section-title"><i class="fas fa-code"></i> Technologies</h4>
+      <div class="svc-techs">${techsHtml}</div>
+    </div>
+    <div class="svc-section">
+      <h4 class="svc-section-title"><i class="fas fa-tasks"></i> My Workflow</h4>
+      <div class="svc-workflow">${workflowHtml}</div>
+    </div>
+    <div class="svc-section">
+      <h4 class="svc-section-title"><i class="fas fa-star"></i> My Focus</h4>
+      <ul class="svc-focus">${focusHtml}</ul>
+    </div>
+  `;
+
+  svcModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+
+  gsap.fromTo('.svc-modal-container',
+    { scale: 0.92, opacity: 0, y: 30 },
+    { scale: 1, opacity: 1, y: 0, duration: 0.45, ease: 'power3.out' }
+  );
+  gsap.fromTo('.svc-modal-overlay',
+    { opacity: 0 },
+    { opacity: 1, duration: 0.3 }
+  );
+}
+
+function closeServiceModal() {
+  gsap.to('.svc-modal-container', {
+    scale: 0.92, opacity: 0, y: 20, duration: 0.25, ease: 'power2.in',
+    onComplete: () => {
+      svcModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+  gsap.to('.svc-modal-overlay', { opacity: 0, duration: 0.2 });
+}
+
+document.querySelectorAll('.pencapaian-item').forEach(card => {
+  card.style.cursor = 'pointer';
+  card.addEventListener('click', function() {
+    const key = this.dataset.service;
+    if (key) openServiceModal(key);
+  });
+});
+
+if (svcClose) svcClose.addEventListener('click', closeServiceModal);
+if (svcOverlay) svcOverlay.addEventListener('click', closeServiceModal);
