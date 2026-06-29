@@ -3,10 +3,13 @@ gsap.registerPlugin(ScrollTrigger);
 const _GP = (el) => el.dataset.gsapDone = '1';
 
 function waitPreloader(cb) {
+  let timedOut = false;
+  const timeout = setTimeout(() => { timedOut = true; }, 3000);
   const id = setInterval(() => {
     const p = document.getElementById('preloader');
-    if (!p || p.classList.contains('hidden')) {
+    if (!p || p.classList.contains('hidden') || timedOut) {
       clearInterval(id);
+      clearTimeout(timeout);
       cb();
     }
   }, 100);
@@ -142,6 +145,19 @@ window.addEventListener('load', () => {
 });
 
 function startHero() {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // If reduced motion, just show everything at once
+  if (prefersReduced) {
+    gsap.set('.viz-bar, .float-badge, .hero-card-wrapper, .hero-status-badge, .hero-greeting, .hero-name, .hero-rotating-wrapper, .hero-buttons, .hero-social-row, .hero-spotlight, .scroll-indicator', {
+      opacity: 1, scale: 1, y: 0, clearProps: 'all'
+    });
+    ambientLoop();
+    initRotatingTextGSAP();
+    document.querySelectorAll('.hero-landing [data-animate]').forEach(_GP);
+    return;
+  }
+
   const tl = gsap.timeline({
     defaults: { ease: 'power3.out' },
     onComplete: () => {
@@ -220,12 +236,17 @@ function ambientLoop() {
     duration: 2.5, ease: 'sine.inOut', yoyo: true, repeat: -1
   });
 
-  gsap.to('.viz-bar', {
-    height: () => gsap.utils.random(8, 65),
-    duration: () => gsap.utils.random(0.4, 1.2),
-    ease: 'sine.inOut', yoyo: true, repeat: -1,
-    stagger: { each: 0.03, from: 'random' }
-  });
+  // Reduced motion check
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReduced) {
+    gsap.to('.viz-bar', {
+      height: () => gsap.utils.random(12, 40),
+      duration: () => gsap.utils.random(0.6, 1.5),
+      ease: 'sine.inOut', yoyo: true, repeat: -1,
+      stagger: { each: 0.04, from: 'random' }
+    });
+  }
 
   gsap.to('.float-badge', {
     y: () => gsap.utils.random(-22, -8), rotation: '+=4',

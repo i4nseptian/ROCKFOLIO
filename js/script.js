@@ -353,31 +353,40 @@ if (fullscreenContainer) {
 }
 
 // ==========================================
-// PRELOADER
+// PRELOADER — Balance between visibility & speed
 // ==========================================
 window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');
     const progress = document.querySelector('.preloader-progress');
     
     if (preloader && progress) {
-        // Animate progress bar
         let width = 0;
-        const progressInterval = setInterval(() => {
-            width += Math.random() * 15 + 5;
-            if (width >= 100) {
-                width = 100;
-                clearInterval(progressInterval);
-                // Hide preloader after brief delay
+        let preloaderFinished = false;
+        
+        const hidePreloader = () => {
+            if (preloaderFinished) return;
+            preloaderFinished = true;
+            clearInterval(progressInterval);
+            width = 100;
+            progress.style.width = '100%';
+            setTimeout(() => {
+                preloader.classList.add('hidden');
                 setTimeout(() => {
-                    preloader.classList.add('hidden');
-                    // Remove from DOM after transition
-                    setTimeout(() => {
-                        if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
-                    }, 600);
-                }, 300);
+                    if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
+                }, 600);
+            }, 400);
+        };
+
+        const progressInterval = setInterval(() => {
+            width += Math.random() * 12 + 6;
+            if (width >= 100) {
+                hidePreloader();
             }
-            progress.style.width = width + '%';
-        }, 150);
+            progress.style.width = Math.min(width, 100) + '%';
+        }, 180);
+
+        // Safety timeout: force-hide after 5s on slow connections
+        setTimeout(hidePreloader, 5000);
     }
 });
 
@@ -656,24 +665,24 @@ if (filterBtns.length > 0 && projectCards.length > 0) {
 
 // 2. ROTATING TAGLINES — handled by GSAP in gsap-animations.js
 
-// 3. GLITCH TEXT — Occasional subtle glitch flicker
+// 3. GLITCH TEXT — Subtle professional effect (disabled on reduced motion)
 (function initGlitch() {
     const el = document.querySelector('.glitch-text');
     if (!el) return;
 
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const originalText = el.getAttribute('data-text') || el.textContent;
 
     function triggerGlitch() {
+        if (prefersReduced) return;
         const chars = '!@#$%^&*()_+-=[]{}|;:,.<>?/\\';
         let iterations = 0;
-        const maxIterations = 4;
+        const maxIterations = 3;
 
         const interval = setInterval(() => {
             const textArr = originalText.split('');
-            const pos1 = Math.floor(Math.random() * textArr.length);
-            const pos2 = Math.floor(Math.random() * textArr.length);
-            if (textArr[pos1] !== ' ') textArr[pos1] = chars[Math.floor(Math.random() * chars.length)];
-            if (textArr[pos2] !== ' ') textArr[pos2] = chars[Math.floor(Math.random() * chars.length)];
+            const pos = Math.floor(Math.random() * textArr.length);
+            if (textArr[pos] !== ' ') textArr[pos] = chars[Math.floor(Math.random() * chars.length)];
             el.textContent = textArr.join('');
 
             iterations++;
@@ -681,13 +690,11 @@ if (filterBtns.length > 0 && projectCards.length > 0) {
                 clearInterval(interval);
                 el.textContent = originalText;
             }
-        }, 60);
+        }, 80);
     }
 
-    el.addEventListener('mouseenter', triggerGlitch);
-
     function scheduleGlitch() {
-        const delay = 8000 + Math.random() * 7000;
+        const delay = 15000 + Math.random() * 10000;
         setTimeout(() => {
             triggerGlitch();
             scheduleGlitch();
