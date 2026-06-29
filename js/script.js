@@ -862,3 +862,156 @@ document.querySelectorAll('.blog-item-wrapper').forEach(wrapper => {
 
 if (blogModalClose) blogModalClose.addEventListener('click', closeBlogModal);
 if (blogModalOverlay) blogModalOverlay.addEventListener('click', closeBlogModal);
+
+// ==========================================
+// SKILL DETAIL MODAL
+// ==========================================
+const skillData = {
+  'digital-marketing': {
+    icon: 'fa-bullhorn',
+    title: 'Digital Marketing',
+    desc: 'Saya memahami dasar-dasar digital marketing dan bagaimana menghubungkan teknologi dengan strategi bisnis.',
+    skills: ['Social Media Marketing', 'Content Marketing', 'Digital Campaign Planning', 'Branding', 'Audience Targeting', 'Basic Analytics'],
+    tools: ['Meta Business Suite', 'Canva', 'Google Trends', 'Google Analytics (Basic)'],
+    work: ['Mengelola kampanye media sosial', 'Membuat strategi konten digital', 'Merencanakan dan menjalankan campaign', 'Analisis performa sederhana', 'Branding & audience targeting'],
+    experience: 'Mengelola media sosial organisasi. Membantu publikasi kegiatan. Membuat strategi konten sederhana. Mengintegrasikan digital marketing ke beberapa project website.',
+    level: 70
+  },
+  'content-planning': {
+    icon: 'fa-pen-fancy',
+    title: 'Content Planning & Strategy',
+    desc: 'Saya mampu merencanakan konten agar memiliki tujuan yang jelas, konsisten, dan sesuai target audiens.',
+    skills: ['Menentukan target audience', 'Menyusun content calendar', 'Menentukan tema konten', 'Menulis copy sederhana', 'Menentukan CTA'],
+    tools: ['Notion', 'Canva', 'Google Docs'],
+    work: ['Menyusun strategi konten', 'Membuat content calendar bulanan', 'Menulis copy untuk website & sosial media', 'Menentukan CTA efektif', 'Riset topik & tren konten'],
+    experience: 'Menyusun konten organisasi. Membantu strategi konten media sosial. Merancang struktur landing page dan website.',
+    level: 65
+  },
+  'social-media': {
+    icon: 'fa-hashtag',
+    title: 'Social Media Management',
+    desc: 'Saya memahami bagaimana mengelola akun media sosial agar tetap aktif, konsisten, dan informatif.',
+    skills: ['Scheduling Post', 'Content Planning', 'Caption Writing', 'Community Engagement', 'Performance Monitoring'],
+    tools: ['Instagram', 'TikTok', 'LinkedIn'],
+    work: ['Mengelola akun media sosial', 'Menjadwalkan dan menerbitkan konten', 'Menulis caption yang engaging', 'Berinteraksi dengan audiens', 'Memantau performa konten'],
+    experience: 'Mengelola media sosial organisasi. Mendukung publikasi informasi saat magang di Kominfo. Membantu penyebaran informasi kepada masyarakat melalui media digital.',
+    level: 75
+  },
+  'market-research': {
+    icon: 'fa-chart-pie',
+    title: 'Market Research',
+    desc: 'Saya mampu melakukan riset sederhana sebelum membuat website maupun strategi bisnis.',
+    skills: ['Competitor Analysis', 'Target Market Analysis', 'User Needs Identification', 'SWOT Analysis', 'Trend Research'],
+    tools: ['Google Trends', 'Google Forms', 'Excel'],
+    work: ['Melakukan riset kompetitor', 'Menganalisis target pasar', 'Mengidentifikasi kebutuhan pengguna', 'Membuat analisis SWOT', 'Riset tren industri'],
+    experience: 'Analisis kebutuhan pengguna sebelum membuat website. Menyesuaikan fitur website berdasarkan kebutuhan client.',
+    level: 60
+  },
+  'ui-ux': {
+    icon: 'fa-palette',
+    title: 'UI/UX Awareness',
+    desc: 'Saya memahami pentingnya pengalaman pengguna dan desain antarmuka sebelum membangun website.',
+    skills: ['Wireframing', 'User Flow', 'Responsive Design', 'Layout Planning', 'Visual Hierarchy'],
+    tools: ['Figma', 'Canva'],
+    work: ['Membuat wireframe & mockup', 'Merancang user flow', 'Mendesain layout responsif', 'Mengatur visual hierarchy', 'Prototyping sederhana'],
+    experience: 'Mendesain UI beberapa website pribadi. Mendesain dashboard monitoring magang. Mendesain website e-commerce dan portfolio.',
+    level: 68
+  },
+  'seo': {
+    icon: 'fa-search-dollar',
+    title: 'SEO Basics',
+    desc: 'Saya memahami dasar Search Engine Optimization agar website lebih mudah ditemukan di mesin pencari.',
+    skills: ['Semantic HTML', 'Meta Tags', 'Heading Structure', 'Image Optimization', 'Basic Keyword Research', 'Page Performance'],
+    tools: ['Google Search Console (Basic)', 'PageSpeed Insights'],
+    work: ['Mengoptimalkan struktur HTML', 'Menulis meta tags yang tepat', 'Mengatur heading hierarchy', 'Optimasi gambar untuk web', 'Riset kata kunci dasar', 'Meningkatkan performa halaman'],
+    experience: 'Menerapkan SEO dasar pada website portfolio. Mengoptimalkan struktur HTML dan performa website.',
+    level: 65
+  }
+};
+
+const skillModal = document.getElementById('skillModal');
+const skillOverlay = document.getElementById('skillModalOverlay');
+const skillClose = document.getElementById('skillModalClose');
+const skillIcon = document.getElementById('skillModalIcon');
+const skillTitle = document.getElementById('skillModalTitle');
+const skillBody = document.getElementById('skillModalBody');
+
+function openSkillModal(key) {
+  const data = skillData[key];
+  if (!data) return;
+
+  skillIcon.innerHTML = '<i class="fas ' + data.icon + '"></i>';
+  skillTitle.textContent = data.title;
+
+  const skillsHtml = data.skills.map(s => '<span class="sm-skill-tag">' + s + '</span>').join('');
+  const toolsHtml = data.tools.map(t => '<span class="sm-tool-tag"><i class="fas fa-check-circle"></i> ' + t + '</span>').join('');
+  const workHtml = data.work.map(w => '<li>' + w + '</li>').join('');
+
+  skillBody.innerHTML = `
+    <div class="sm-section">
+      <p class="sm-desc">${data.desc}</p>
+    </div>
+    <div class="sm-section">
+      <h4><i class="fas fa-code"></i> Yang Saya Kuasai</h4>
+      <div class="sm-tags">${skillsHtml}</div>
+    </div>
+    <div class="sm-section">
+      <h4><i class="fas fa-tools"></i> Tools</h4>
+      <div class="sm-tools">${toolsHtml}</div>
+    </div>
+    <div class="sm-section">
+      <h4><i class="fas fa-briefcase"></i> Apa Yang Bisa Saya Kerjakan</h4>
+      <ul class="sm-work-list">${workHtml}</ul>
+    </div>
+    <div class="sm-section">
+      <h4><i class="fas fa-star"></i> Pengalaman</h4>
+      <p class="sm-exp">${data.experience}</p>
+    </div>
+    <div class="sm-section">
+      <h4><i class="fas fa-chart-line"></i> Tingkat Kemampuan</h4>
+      <div class="sm-level-bar">
+        <div class="sm-level-progress" style="width: ${data.level}%"></div>
+      </div>
+      <span class="sm-level-text">${data.level}%</span>
+    </div>
+  `;
+
+  skillModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+
+  gsap.fromTo('.skill-modal-container',
+    { scale: 0.9, opacity: 0, y: 30 },
+    { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' }
+  );
+  gsap.fromTo('.skill-modal-overlay',
+    { opacity: 0 },
+    { opacity: 1, duration: 0.3 }
+  );
+}
+
+function closeSkillModal() {
+  gsap.to('.skill-modal-container', {
+    scale: 0.9, opacity: 0, y: 20, duration: 0.25, ease: 'power2.in',
+    onComplete: () => {
+      skillModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+  gsap.to('.skill-modal-overlay', { opacity: 0, duration: 0.2 });
+}
+
+document.querySelectorAll('.skill-card').forEach(card => {
+  card.addEventListener('click', function() {
+    const key = this.dataset.skill;
+    openSkillModal(key);
+  });
+});
+
+if (skillClose) skillClose.addEventListener('click', closeSkillModal);
+if (skillOverlay) skillOverlay.addEventListener('click', closeSkillModal);
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    if (skillModal && skillModal.classList.contains('active')) closeSkillModal();
+  }
+});

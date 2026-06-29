@@ -239,13 +239,32 @@
 
                     <div class="card" data-animate="animate__fadeInLeft" data-delay="0.3s">
                         <h3 class="section-title">Additional Strengths</h3>
+                        <p class="strengths-hint">Click a skill to learn more</p>
                         <div class="strengths-grid">
-                            <span><i class="fas fa-bullhorn"></i> Digital Marketing</span>
-                            <span><i class="fas fa-pen-fancy"></i> Content Planning & Strategy</span>
-                            <span><i class="fas fa-hashtag"></i> Social Media Management</span>
-                            <span><i class="fas fa-chart-pie"></i> Market Research</span>
-                            <span><i class="fas fa-palette"></i> UI/UX Awareness</span>
-                            <span><i class="fas fa-search-dollar"></i> SEO Basics</span>
+                            <div class="skill-card" data-skill="digital-marketing">
+                                <i class="fas fa-bullhorn"></i>
+                                <span>Digital Marketing</span>
+                            </div>
+                            <div class="skill-card" data-skill="content-planning">
+                                <i class="fas fa-pen-fancy"></i>
+                                <span>Content Planning & Strategy</span>
+                            </div>
+                            <div class="skill-card" data-skill="social-media">
+                                <i class="fas fa-hashtag"></i>
+                                <span>Social Media Management</span>
+                            </div>
+                            <div class="skill-card" data-skill="market-research">
+                                <i class="fas fa-chart-pie"></i>
+                                <span>Market Research</span>
+                            </div>
+                            <div class="skill-card" data-skill="ui-ux">
+                                <i class="fas fa-palette"></i>
+                                <span>UI/UX Awareness</span>
+                            </div>
+                            <div class="skill-card" data-skill="seo">
+                                <i class="fas fa-search-dollar"></i>
+                                <span>SEO Basics</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -837,6 +856,23 @@
                     <p id="blogModalDesc" class="modal-desc"></p>
                     <div class="modal-links" id="blogModalLinks"></div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skill Detail Modal -->
+    <div id="skillModal" class="skill-modal">
+        <div class="skill-modal-overlay" id="skillModalOverlay"></div>
+        <div class="skill-modal-container">
+            <button class="skill-modal-close" id="skillModalClose" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="skill-modal-content">
+                <div class="skill-modal-header">
+                    <div class="skill-modal-icon" id="skillModalIcon"><i class="fas fa-star"></i></div>
+                    <h2 id="skillModalTitle" class="skill-modal-title"></h2>
+                </div>
+                <div class="skill-modal-body" id="skillModalBody"></div>
             </div>
         </div>
     </div>
