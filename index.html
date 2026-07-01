@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Achmad Septian Mulia - Portfolio</title>
-    <meta name="description" content="Web Developer & Digital Business portfolio by Achmad Septian Mulia — Laravel, Django, E-Commerce, POS Systems, Data Dashboards">
+    <meta name="description"
+        content="Web Developer & Digital Business portfolio by Achmad Septian Mulia — Laravel, Django, E-Commerce, POS Systems, Data Dashboards">
 
     <!-- Open Graph / Social Sharing Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rockfolio.vercel.app/">
     <meta property="og:title" content="Achmad Septian Mulia — Web Developer &amp; Digital Business">
-    <meta property="og:description" content="Building e-commerce platforms, POS systems, data dashboards, and business websites with Laravel & Django. Open for freelance projects.">
+    <meta property="og:description"
+        content="Building e-commerce platforms, POS systems, data dashboards, and business websites with Laravel & Django. Open for freelance projects.">
     <meta property="og:image" content="https://rockfolio.vercel.app/img/foto%20fakultas.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -19,7 +21,8 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Achmad Septian Mulia — Web Developer &amp; Digital Business">
-    <meta name="twitter:description" content="Building e-commerce platforms, POS systems, data dashboards, and business websites with Laravel & Django.">
+    <meta name="twitter:description"
+        content="Building e-commerce platforms, POS systems, data dashboards, and business websites with Laravel & Django.">
     <meta name="twitter:image" content="https://rockfolio.vercel.app/img/foto%20fakultas.jpg">
 
     <!-- Canonical URL -->
@@ -30,11 +33,18 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" media="print" onload="this.onload=null;this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"></noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+        media="print" onload="this.onload=null;this.media='all'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap">
+    </noscript>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.onload=null;this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print" onload="this.onload=null;this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
     <link rel="shortcut icon" href="img/ace_of_spades-removebg-preview.png" type="image/x-icon">
 
 </head>
@@ -42,17 +52,27 @@
 <body>
     <!-- Preloader -->
     <div id="preloader">
+        <div class="preloader-bg"></div>
+        <div class="preloader-notes" id="preloaderNotes"></div>
         <div class="preloader-content">
-            <div class="preloader-vinyl">
-                <img src="img/ace_of_spades-removebg-preview.png" alt="Loading" class="preloader-disk">
-                <div class="preloader-center"></div>
+            <div class="preloader-turntable">
+                <div class="preloader-tonearm"></div>
+                <div class="preloader-vinyl">
+                    <div class="preloader-grooves"></div>
+                    <img src="img/ace_of_spades-removebg-preview.png" alt="Loading" class="preloader-disk">
+                    <div class="preloader-shine"></div>
+                    <div class="preloader-center"></div>
+                </div>
             </div>
             <div class="preloader-text">
                 <span class="preloader-brand">i4nsep<span>tian</span></span>
-                <div class="preloader-bar">
-                    <div class="preloader-progress"></div>
+                <div class="preloader-bar-track">
+                    <div class="preloader-bar">
+                        <div class="preloader-progress"></div>
+                    </div>
+                    <div class="preloader-percent" id="preloaderPercent">0%</div>
                 </div>
-                <span class="preloader-loading">Loading...</span>
+                <span class="preloader-loading" id="preloaderLoading">Loading</span>
             </div>
         </div>
     </div>
@@ -163,12 +183,16 @@
                     <div class="hero-buttons">
                         <a href="#portofolio" class="hero-cta-primary"><i class="fas fa-rocket"></i> View My Work</a>
                         <a href="#kontak" class="hero-cta-secondary"><i class="fas fa-paper-plane"></i> Contact Me</a>
-                        <a href="cv-achmad-septian-mulia.pdf" class="hero-cta-cv" download><i class="fas fa-file-pdf"></i> Download CV</a>
+                        <a href="#" class="hero-cta-cv" data-open-cv><i
+                                class="fas fa-file-pdf"></i> Download CV</a>
                     </div>
                     <div class="hero-social-row">
-                        <a href="https://github.com/i4nseptian" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/achmad-septian-" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://wa.me/6289694899767" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://github.com/i4nseptian" target="_blank" rel="noopener" aria-label="GitHub"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/achmad-septian-" target="_blank" rel="noopener"
+                            aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://wa.me/6289694899767" target="_blank" rel="noopener" aria-label="WhatsApp"><i
+                                class="fab fa-whatsapp"></i></a>
                         <a href="mailto:i4nseptian77@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
@@ -186,7 +210,8 @@
         <!-- Wave Divider -->
         <div class="hero-wave">
             <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-                <path d="M0,50 C240,100 480,0 720,50 C960,100 1200,0 1440,50 L1440,100 L0,100 Z" fill="var(--darker-blue)"></path>
+                <path d="M0,50 C240,100 480,0 720,50 C960,100 1200,0 1440,50 L1440,100 L0,100 Z"
+                    fill="var(--darker-blue)"></path>
             </svg>
         </div>
     </header>
@@ -200,7 +225,11 @@
                 <div class="content-section">
                     <div class="card" data-animate="animate__fadeInLeft" data-delay="0.1s">
                         <h4 class="item-title">Web Developer & Digital Business</h4>
-                        <p class="item-subtitle">Web Developer and Digital Business student with experience building web applications using <strong>Laravel</strong> and <strong>Django</strong>. Skilled in developing e-commerce platforms, POS systems, business websites, landing pages, and interactive dashboards. Passionate about combining web development with digital marketing to create solutions that are both technically effective and business-oriented.</p>
+                        <p class="item-subtitle">Web Developer and Digital Business student with experience building web
+                            applications using <strong>Laravel</strong> and <strong>Django</strong>. Skilled in
+                            developing e-commerce platforms, POS systems, business websites, landing pages, and
+                            interactive dashboards. Passionate about combining web development with digital marketing to
+                            create solutions that are both technically effective and business-oriented.</p>
                     </div>
 
                     <div class="card" data-animate="animate__fadeInLeft" data-delay="0.2s">
@@ -210,28 +239,32 @@
                                 <i class="fas fa-comments"></i>
                                 <div>
                                     <h4>Understand First, Build Second</h4>
-                                    <p>I start every project by deeply understanding your business goals, target audience, and what success looks like for you.</p>
+                                    <p>I start every project by deeply understanding your business goals, target
+                                        audience, and what success looks like for you.</p>
                                 </div>
                             </div>
                             <div class="approach-item">
                                 <i class="fas fa-code"></i>
                                 <div>
                                     <h4>Clean & Maintainable Code</h4>
-                                    <p>Every line of code is written to be scalable, well-documented, and easy for any developer to pick up later.</p>
+                                    <p>Every line of code is written to be scalable, well-documented, and easy for any
+                                        developer to pick up later.</p>
                                 </div>
                             </div>
                             <div class="approach-item">
                                 <i class="fas fa-chart-line"></i>
                                 <div>
                                     <h4>Business-First Thinking</h4>
-                                    <p>I don't just build what you ask for — I build what your business actually needs to grow and convert.</p>
+                                    <p>I don't just build what you ask for — I build what your business actually needs
+                                        to grow and convert.</p>
                                 </div>
                             </div>
                             <div class="approach-item">
                                 <i class="fas fa-handshake"></i>
                                 <div>
                                     <h4>Clear Communication</h4>
-                                    <p>Regular updates, honest timelines, and no technical jargon. You'll always know where your project stands.</p>
+                                    <p>Regular updates, honest timelines, and no technical jargon. You'll always know
+                                        where your project stands.</p>
                                 </div>
                             </div>
                         </div>
@@ -273,8 +306,10 @@
                     <img src="img/foto fakultas.jpg" alt="Achmad Septian Mulia" class="profile-photo"
                         data-animate="animate__zoomIn" data-delay="0.1s" loading="lazy" width="280" height="373">
                     <h3 data-animate="animate__fadeIn" data-delay="0.3s">Achmad Septian Mulia</h3>
-                    <p class="photo-subtitle" data-animate="animate__fadeIn" data-delay="0.4s">Web Developer & Digital Business</p>
-                    <a href="cv-achmad-septian-mulia.pdf" class="btn-cv-about" download data-animate="animate__fadeIn" data-delay="0.5s">
+                    <p class="photo-subtitle" data-animate="animate__fadeIn" data-delay="0.4s">Web Developer & Digital
+                        Business</p>
+                    <a href="#" class="btn-cv-about" data-open-cv data-animate="animate__fadeIn"
+                        data-delay="0.5s">
                         <i class="fas fa-file-pdf"></i> Download CV / Resume
                     </a>
                 </div>
@@ -291,7 +326,8 @@
                 <div class="pencapaian-item" data-service="ecommerce" data-animate="animate__fadeIn" data-delay="0.1s">
                     <i class="fas fa-shopping-cart"></i>
                     <h3>E-Commerce</h3>
-                    <p>Building e-commerce platforms with Django — product management, cart, checkout, and authentication</p>
+                    <p>Building e-commerce platforms with Django — product management, cart, checkout, and
+                        authentication</p>
                 </div>
                 <div class="pencapaian-item" data-service="pos" data-animate="animate__fadeIn" data-delay="0.2s">
                     <i class="fas fa-cash-register"></i>
@@ -323,70 +359,148 @@
                         <span class="skill-name"><i class="fab fa-html5"></i> HTML5 / CSS3</span>
                         <span class="skill-percent">90%</span>
                     </div>
-                    <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="90"></div>
+                    </div>
                 </div>
                 <div class="skill-item" data-animate="animate__fadeInRight" data-delay="0.1s">
                     <div class="skill-info">
                         <span class="skill-name"><i class="fab fa-js"></i> JavaScript</span>
                         <span class="skill-percent">80%</span>
                     </div>
-                    <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="80"></div>
+                    </div>
                 </div>
                 <div class="skill-item" data-animate="animate__fadeInLeft" data-delay="0.2s">
                     <div class="skill-info">
                         <span class="skill-name"><i class="fab fa-laravel"></i> Laravel Framework</span>
                         <span class="skill-percent">82%</span>
                     </div>
-                    <div class="skill-bar"><div class="skill-progress" data-width="82"></div></div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="82"></div>
+                    </div>
                 </div>
                 <div class="skill-item" data-animate="animate__fadeInRight" data-delay="0.2s">
                     <div class="skill-info">
                         <span class="skill-name"><i class="fab fa-python"></i> Django Framework</span>
                         <span class="skill-percent">78%</span>
                     </div>
-                    <div class="skill-bar"><div class="skill-progress" data-width="78"></div></div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="78"></div>
+                    </div>
                 </div>
                 <div class="skill-item" data-animate="animate__fadeInLeft" data-delay="0.3s">
                     <div class="skill-info">
                         <span class="skill-name"><i class="fas fa-database"></i> Database Design & CRUD</span>
                         <span class="skill-percent">85%</span>
                     </div>
-                    <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="85"></div>
+                    </div>
                 </div>
                 <div class="skill-item" data-animate="animate__fadeInRight" data-delay="0.3s">
                     <div class="skill-info">
                         <span class="skill-name"><i class="fab fa-git-alt"></i> Git & GitHub</span>
                         <span class="skill-percent">75%</span>
                     </div>
-                    <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="75"></div>
+                    </div>
                 </div>
                 <div class="skill-item" data-animate="animate__fadeInLeft" data-delay="0.4s">
                     <div class="skill-info">
                         <span class="skill-name"><i class="fas fa-mobile-alt"></i> Responsive Web Design</span>
                         <span class="skill-percent">88%</span>
                     </div>
-                    <div class="skill-bar"><div class="skill-progress" data-width="88"></div></div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="88"></div>
+                    </div>
                 </div>
                 <div class="skill-item" data-animate="animate__fadeInRight" data-delay="0.4s">
                     <div class="skill-info">
                         <span class="skill-name"><i class="fas fa-plug"></i> REST API Integration</span>
                         <span class="skill-percent">70%</span>
                     </div>
-                    <div class="skill-bar"><div class="skill-progress" data-width="70"></div></div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="70"></div>
+                    </div>
                 </div>
                 <div class="skill-item" data-animate="animate__fadeInLeft" data-delay="0.5s">
                     <div class="skill-info">
                         <span class="skill-name"><i class="fas fa-chart-line"></i> Dashboard & Data Viz</span>
                         <span class="skill-percent">76%</span>
                     </div>
-                    <div class="skill-bar"><div class="skill-progress" data-width="76"></div></div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="76"></div>
+                    </div>
                 </div>
                 <div class="skill-item" data-animate="animate__fadeInRight" data-delay="0.5s">
                     <div class="skill-info">
                         <span class="skill-name"><i class="fas fa-user-lock"></i> Auth & User Management</span>
                         <span class="skill-percent">80%</span>
                     </div>
-                    <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="80"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates -->
+    <section id="certificates" class="certificates">
+        <div class="container">
+            <span class="section-number" data-animate="animate__fadeIn">03.5 — Certificates</span>
+            <h2 class="section-title" data-animate="animate__fadeIn">Licenses & Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-card" data-animate="animate__fadeInUp" data-delay="0.1s">
+                    <div class="cert-icon"><i class="fas fa-terminal"></i></div>
+                    <div class="cert-info">
+                        <h4>Belajar Dasar Pemrograman Web</h4>
+                        <span class="cert-issuer">Dicoding Indonesia</span>
+                        <span class="cert-year">2024</span>
+                    </div>
+                </div>
+                <div class="cert-card" data-animate="animate__fadeInUp" data-delay="0.2s">
+                    <div class="cert-icon"><i class="fab fa-js"></i></div>
+                    <div class="cert-info">
+                        <h4>JavaScript Fundamentals</h4>
+                        <span class="cert-issuer">Dicoding Indonesia</span>
+                        <span class="cert-year">2024</span>
+                    </div>
+                </div>
+                <div class="cert-card" data-animate="animate__fadeInUp" data-delay="0.3s">
+                    <div class="cert-icon"><i class="fab fa-laravel"></i></div>
+                    <div class="cert-info">
+                        <h4>Laravel Web Development</h4>
+                        <span class="cert-issuer">Coursera</span>
+                        <span class="cert-year">2024</span>
+                    </div>
+                </div>
+                <div class="cert-card" data-animate="animate__fadeInUp" data-delay="0.4s">
+                    <div class="cert-icon"><i class="fab fa-python"></i></div>
+                    <div class="cert-info">
+                        <h4>Django for Beginners</h4>
+                        <span class="cert-issuer">Coursera</span>
+                        <span class="cert-year">2024</span>
+                    </div>
+                </div>
+                <div class="cert-card" data-animate="animate__fadeInUp" data-delay="0.5s">
+                    <div class="cert-icon"><i class="fas fa-database"></i></div>
+                    <div class="cert-info">
+                        <h4>Database Design & Management</h4>
+                        <span class="cert-issuer">Dicoding Indonesia</span>
+                        <span class="cert-year">2024</span>
+                    </div>
+                </div>
+                <div class="cert-card" data-animate="animate__fadeInUp" data-delay="0.6s">
+                    <div class="cert-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="cert-info">
+                        <h4>Responsive Web Design</h4>
+                        <span class="cert-issuer">Coursera</span>
+                        <span class="cert-year">2024</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -434,18 +548,24 @@
             </div>
             <div class="portofolio-container">
                 <!-- Project 1: E-Commerce Django — Featured -->
-                <div class="project-card project-card-featured" data-category="django" data-animate="animate__fadeInUp" data-delay="0.1s">
+                <div class="project-card project-card-featured" data-category="django" data-animate="animate__fadeInUp"
+                    data-delay="0.1s">
                     <div class="featured-badge"><i class="fas fa-star"></i> Featured</div>
                     <div class="project-image">
-                        <img src="img/lokahome.png" alt="E-Commerce Django Project" loading="lazy" width="400" height="250">
+                        <img src="img/lokahome.png" alt="E-Commerce Django Project" loading="lazy" width="400"
+                            height="250">
                         <div class="project-overlay">
-                            <a href="#" class="project-link" title="Live Demo — Coming Soon" onclick="return false"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="https://github.com/i4nseptian/loka-keychain" class="project-link" title="View on GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                            <p class="overlay-desc">Full-stack e-commerce platform — product catalog, shopping cart, checkout, and order management dashboard.</p>
+                            <div class="overlay-links">
+                                <a href="#" class="project-link" onclick="return false"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                <a href="https://github.com/i4nseptian/loka-keychain" class="project-link" target="_blank" rel="noopener"><i class="fab fa-github"></i> Source Code</a>
+                            </div>
                         </div>
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">E-Commerce Platform — Loka Keychain</h3>
-                        <p class="project-desc">Full-stack e-commerce platform built with Django — product catalog, shopping cart, checkout, authentication, and order management dashboard.</p>
+                        <p class="project-desc">Full-stack e-commerce platform built with Django — product catalog,
+                            shopping cart, checkout, authentication, and order management dashboard.</p>
                         <div class="project-result">
                             <span><i class="fas fa-chart-line"></i> 40% more orders</span>
                             <span><i class="fas fa-check-circle"></i> Zero order errors</span>
@@ -455,8 +575,10 @@
                             <span>Django</span><span>Python</span><span>SQLite</span><span>Bootstrap</span><span>Auth</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="btn-small" title="Coming Soon" onclick="return false"><i class="fas fa-eye"></i> Live Demo</a>
-                            <a href="https://github.com/i4nseptian/loka-keychain" class="btn-small btn-outline" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="btn-small" title="Coming Soon" onclick="return false"><i
+                                    class="fas fa-eye"></i> Live Demo</a>
+                            <a href="https://github.com/i4nseptian/loka-keychain" class="btn-small btn-outline"
+                                target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
                 </div>
@@ -464,21 +586,28 @@
                 <!-- Project 2: POS Laravel -->
                 <div class="project-card" data-category="laravel" data-animate="animate__fadeInUp" data-delay="0.2s">
                     <div class="project-image">
-                        <img src="img/foto pengurus.jpg" alt="POS Laravel Project" loading="lazy" width="400" height="250">
+                        <img src="img/foto pengurus.jpg" alt="POS Laravel Project" loading="lazy" width="400"
+                            height="250">
                         <div class="project-overlay">
-                            <a href="#" class="project-link" title="Live Demo — Coming Soon" onclick="return false"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="https://github.com/i4nseptian" class="project-link" title="View on GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                            <p class="overlay-desc">Point of Sale system — transaction processing, inventory management, sales reports, and real-time dashboard.</p>
+                            <div class="overlay-links">
+                                <a href="#" class="project-link" onclick="return false"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                <a href="https://github.com/i4nseptian" class="project-link" target="_blank" rel="noopener"><i class="fab fa-github"></i> Source Code</a>
+                            </div>
                         </div>
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Cashier (POS) Management System</h3>
-                        <p class="project-desc">Point of Sale system built with Laravel. Features: transaction processing, inventory management, sales reports, user roles, and real-time dashboard.</p>
+                        <p class="project-desc">Point of Sale system built with Laravel. Features: transaction
+                            processing, inventory management, sales reports, user roles, and real-time dashboard.</p>
                         <div class="project-tags">
                             <span>Laravel</span><span>PHP</span><span>MySQL</span><span>Blade</span><span>CRUD</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="btn-small" title="Coming Soon" onclick="return false"><i class="fas fa-eye"></i> Live Demo</a>
-                            <a href="https://github.com/i4nseptian" class="btn-small btn-outline" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="btn-small" title="Coming Soon" onclick="return false"><i
+                                    class="fas fa-eye"></i> Live Demo</a>
+                            <a href="https://github.com/i4nseptian" class="btn-small btn-outline" target="_blank"
+                                rel="noopener"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
                 </div>
@@ -486,21 +615,30 @@
                 <!-- Project 3: Data Dashboard -->
                 <div class="project-card" data-category="laravel" data-animate="animate__fadeInUp" data-delay="0.3s">
                     <div class="project-image">
-                        <img src="img/solitaire 1.png" alt="Data Dashboard Project" loading="lazy" width="400" height="250">
+                        <img src="img/solitaire 1.png" alt="Data Dashboard Project" loading="lazy" width="400"
+                            height="250">
                         <div class="project-overlay">
-                            <a href="#" class="project-link" title="View Preview" onclick="return false"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="https://github.com/i4nseptian" class="project-link" title="View on GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                            <p class="overlay-desc">Data visualization dashboard — interactive charts, real-time data, filterable reports, and PDF/Excel export.</p>
+                            <div class="overlay-links">
+                                <a href="#" class="project-link" onclick="return false"><i class="fas fa-external-link-alt"></i> Preview</a>
+                                <a href="https://github.com/i4nseptian" class="project-link" target="_blank" rel="noopener"><i class="fab fa-github"></i> Source Code</a>
+                            </div>
                         </div>
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Interactive Data Dashboard</h3>
-                        <p class="project-desc">Data visualization dashboard with interactive charts and analytics. Features: real-time data display, filterable reports, export to PDF/Excel, and role-based access.</p>
+                        <p class="project-desc">Data visualization dashboard with interactive charts and analytics.
+                            Features: real-time data display, filterable reports, export to PDF/Excel, and role-based
+                            access.</p>
                         <div class="project-tags">
-                            <span>Laravel</span><span>Chart.js</span><span>MySQL</span><span>Data Viz</span><span>Dashboard</span>
+                            <span>Laravel</span><span>Chart.js</span><span>MySQL</span><span>Data
+                                Viz</span><span>Dashboard</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="btn-small" title="Coming Soon" onclick="return false"><i class="fas fa-eye"></i> Preview</a>
-                            <a href="https://github.com/i4nseptian" class="btn-small btn-outline" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="btn-small" title="Coming Soon" onclick="return false"><i
+                                    class="fas fa-eye"></i> Preview</a>
+                            <a href="https://github.com/i4nseptian" class="btn-small btn-outline" target="_blank"
+                                rel="noopener"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
                 </div>
@@ -508,19 +646,27 @@
                 <!-- Project 4: Internship Monitoring (Filament) -->
                 <div class="project-card" data-category="filament" data-animate="animate__fadeInUp" data-delay="0.4s">
                     <div class="project-image">
-                        <img src="img/rosetta.jpg" alt="Internship Monitoring MBG" loading="lazy" width="400" height="250">
+                        <img src="img/rosetta.jpg" alt="Internship Monitoring MBG" loading="lazy" width="400"
+                            height="250">
                         <div class="project-overlay">
-                            <a href="https://github.com/i4nseptian/monitor-magang-mbg" class="project-link" title="View on GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                            <p class="overlay-desc">Internship monitoring for Kominfo — intern data management, daily logs, task assignments, attendance tracking.</p>
+                            <div class="overlay-links">
+                                <a href="https://github.com/i4nseptian/monitor-magang-mbg" class="project-link" target="_blank" rel="noopener"><i class="fab fa-github"></i> Source Code</a>
+                            </div>
                         </div>
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Internship Monitoring MBG</h3>
-                        <p class="project-desc">Web-based internship monitoring system built with Laravel Filament for Kominfo. Features: intern data management, daily activity logs, task assignments, attendance tracking, and progress reports.</p>
+                        <p class="project-desc">Web-based internship monitoring system built with Laravel Filament for
+                            Kominfo. Features: intern data management, daily activity logs, task assignments, attendance
+                            tracking, and progress reports.</p>
                         <div class="project-tags">
-                            <span>Laravel</span><span>Filament</span><span>PHP</span><span>MySQL</span><span>Admin Panel</span>
+                            <span>Laravel</span><span>Filament</span><span>PHP</span><span>MySQL</span><span>Admin
+                                Panel</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/i4nseptian/monitor-magang-mbg" class="btn-small btn-outline" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
+                            <a href="https://github.com/i4nseptian/monitor-magang-mbg" class="btn-small btn-outline"
+                                target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
                 </div>
@@ -528,21 +674,29 @@
                 <!-- Project 5: Business Website -->
                 <div class="project-card" data-category="frontend" data-animate="animate__fadeInUp" data-delay="0.5s">
                     <div class="project-image">
-                        <img src="img/foto band.jpg" alt="Business Website Project" loading="lazy" width="400" height="250">
+                        <img src="img/foto band.jpg" alt="Business Website Project" loading="lazy" width="400"
+                            height="250">
                         <div class="project-overlay">
-                            <a href="#" class="project-link" title="Live Demo — Coming Soon" onclick="return false"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="https://github.com/i4nseptian" class="project-link" title="View on GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                            <p class="overlay-desc">Modern business landing page — responsive design, SEO, contact form, and smooth animations.</p>
+                            <div class="overlay-links">
+                                <a href="#" class="project-link" onclick="return false"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                <a href="https://github.com/i4nseptian" class="project-link" target="_blank" rel="noopener"><i class="fab fa-github"></i> Source Code</a>
+                            </div>
                         </div>
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Responsive Business Website</h3>
-                        <p class="project-desc">Modern business landing page with responsive design, SEO optimization, contact form, and smooth animations. Built with digital marketing principles for maximum conversion.</p>
+                        <p class="project-desc">Modern business landing page with responsive design, SEO optimization,
+                            contact form, and smooth animations. Built with digital marketing principles for maximum
+                            conversion.</p>
                         <div class="project-tags">
                             <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive</span><span>SEO</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="btn-small" title="Coming Soon" onclick="return false"><i class="fas fa-eye"></i> Live Demo</a>
-                            <a href="https://github.com/i4nseptian" class="btn-small btn-outline" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
+                            <a href="#" class="btn-small" title="Coming Soon" onclick="return false"><i
+                                    class="fas fa-eye"></i> Live Demo</a>
+                            <a href="https://github.com/i4nseptian" class="btn-small btn-outline" target="_blank"
+                                rel="noopener"><i class="fab fa-github"></i> Code</a>
                         </div>
                     </div>
                 </div>
@@ -556,7 +710,8 @@
         <img id="fullscreen-image" src="" alt="Fullscreen View">
         <div class="zoom-controls">
             <button class="zoom-btn" onclick="zoomImage(1.2)" aria-label="Zoom In"><i class="fas fa-plus"></i></button>
-            <button class="zoom-btn" onclick="zoomImage(0.8)" aria-label="Zoom Out"><i class="fas fa-minus"></i></button>
+            <button class="zoom-btn" onclick="zoomImage(0.8)" aria-label="Zoom Out"><i
+                    class="fas fa-minus"></i></button>
             <button class="zoom-btn" onclick="closeImage()" aria-label="Close"><i class="fas fa-times"></i></button>
         </div>
     </div>
@@ -570,10 +725,13 @@
                 <!-- Testimonial 1 -->
                 <div class="testimonial-card" data-animate="animate__fadeInUp" data-delay="0.1s">
                     <div class="testimonial-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="testimonial-text">
-                        "Built our entire e-commerce platform from scratch — product catalog, shopping cart, checkout, everything just works. Sales went up 40% in the first month. Professional, fast, and really understands what a business needs."
+                        "Built our entire e-commerce platform from scratch — product catalog, shopping cart, checkout,
+                        everything just works. Sales went up 40% in the first month. Professional, fast, and really
+                        understands what a business needs."
                     </p>
                     <div class="testimonial-author">
                         <div class="author-avatar">RA</div>
@@ -587,10 +745,13 @@
                 <!-- Testimonial 2 -->
                 <div class="testimonial-card" data-animate="animate__fadeInUp" data-delay="0.2s">
                     <div class="testimonial-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="testimonial-text">
-                        "The POS system he built for our café chain completely transformed how we operate. Real-time inventory tracking, instant sales reports, and the staff picked it up in minutes. Saved us hours of manual work every single day."
+                        "The POS system he built for our café chain completely transformed how we operate. Real-time
+                        inventory tracking, instant sales reports, and the staff picked it up in minutes. Saved us hours
+                        of manual work every single day."
                     </p>
                     <div class="testimonial-author">
                         <div class="author-avatar">MP</div>
@@ -604,10 +765,13 @@
                 <!-- Testimonial 3 -->
                 <div class="testimonial-card" data-animate="animate__fadeInUp" data-delay="0.3s">
                     <div class="testimonial-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="testimonial-text">
-                        "Needed a business website that actually converts visitors into leads. He delivered a stunning, fast-loading site with SEO that got us to page one on Google within two months. Our inquiry rate tripled. Worth every rupiah."
+                        "Needed a business website that actually converts visitors into leads. He delivered a stunning,
+                        fast-loading site with SEO that got us to page one on Google within two months. Our inquiry rate
+                        tripled. Worth every rupiah."
                     </p>
                     <div class="testimonial-author">
                         <div class="author-avatar">DP</div>
@@ -632,11 +796,11 @@
                     data-blog-title="Rock Music World - History, Genres, and Legends"
                     data-blog-desc="Explore the rich history of rock music, from its blues and R&amp;B roots in the 1950s to the legendary figures who shaped the genre. Discover how rock evolved through decades, from Elvis Presley and Chuck Berry to Led Zeppelin, Pink Floyd, and modern rock icons."
                     data-blog-url="https://ianseptian77.blogspot.com/2025/04/dunia-musik-rock-sejarah-aliran-dan.html"
-                    data-blog-image="img/foto sejarah rock.jpeg"
-                    data-blog-date="5 April 2023"
+                    data-blog-image="img/foto sejarah rock.jpeg" data-blog-date="5 April 2023"
                     data-blog-source="Blogger">
                     <div class="blog-item">
-                        <img src="img/foto sejarah rock.jpeg" alt="Rock Music History" loading="lazy" width="400" height="250">
+                        <img src="img/foto sejarah rock.jpeg" alt="Rock Music History" loading="lazy" width="400"
+                            height="250">
                         <div class="blog-content">
                             <h3>Rock Music World - History, Genres, and Legends</h3>
                             <p>A brief history of rock music and its legendary figures</p>
@@ -653,9 +817,7 @@
                     data-blog-title="Coffee and Its History"
                     data-blog-desc="Discover the fascinating journey of coffee, from its discovery in ancient Ethiopia to becoming a global phenomenon. Learn about the origins of coffee cultivation, the spread of coffeehouses across Europe, and how this legendary drink shaped cultures worldwide."
                     data-blog-url="https://ianseptian77.blogspot.com/2025/04/kopi-dan-sejarahnya-perjalanan-panjang.html"
-                    data-blog-image="img/foto kopi.jpeg"
-                    data-blog-date="12 Juni 2023"
-                    data-blog-source="Blogger">
+                    data-blog-image="img/foto kopi.jpeg" data-blog-date="12 Juni 2023" data-blog-source="Blogger">
                     <div class="blog-item">
                         <img src="img/foto kopi.jpeg" alt="Coffee History" loading="lazy" width="400" height="250">
                         <div class="blog-content">
@@ -674,11 +836,11 @@
                     data-blog-title="Web Development Journey"
                     data-blog-desc="Follow my personal journey from a complete beginner to a professional web developer. This article covers the challenges, resources, and milestones along the way — from learning HTML and CSS to mastering modern frameworks like Laravel and Django."
                     data-blog-url="https://ianseptian77.blogspot.com/2025/04/web-development-journey-dari-pemula.html"
-                    data-blog-image="img/foto web development.jpeg"
-                    data-blog-date="23 Agustus 2023"
+                    data-blog-image="img/foto web development.jpeg" data-blog-date="23 Agustus 2023"
                     data-blog-source="Blogger">
                     <div class="blog-item">
-                        <img src="img/foto web development.jpeg" alt="Web Development Journey" loading="lazy" width="400" height="250">
+                        <img src="img/foto web development.jpeg" alt="Web Development Journey" loading="lazy"
+                            width="400" height="250">
                         <div class="blog-content">
                             <h3>Web Development Journey</h3>
                             <p>From zero to becoming a professional web developer</p>
@@ -714,34 +876,40 @@
                         <li><i class="fas fa-map-marker-alt"></i> Makassar, Indonesia</li>
                     </ul>
                     <div class="social-icons">
-                        <a href="https://github.com/i4nseptian" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/achmad-septian-" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://www.instagram.com/i4nseptian._/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://ianseptian77.blogspot.com" target="_blank" rel="noopener" aria-label="Blogger"><i class="fab fa-blogger"></i></a>
+                        <a href="https://github.com/i4nseptian" target="_blank" rel="noopener" aria-label="GitHub"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/achmad-septian-" target="_blank" rel="noopener"
+                            aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/i4nseptian._/" target="_blank" rel="noopener"
+                            aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://ianseptian77.blogspot.com" target="_blank" rel="noopener"
+                            aria-label="Blogger"><i class="fab fa-blogger"></i></a>
                         <a href="mailto:i4nseptian77@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                        <a href="https://wa.me/6289694899767" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://wa.me/6289694899767" target="_blank" rel="noopener" aria-label="WhatsApp"><i
+                                class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="kontak-form" data-animate="animate__fadeInRight" data-delay="0.1s">
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="nama">Name</label>
-                            <input type="text" id="nama" placeholder="Enter your name" required>
+                            <input type="text" id="nama" name="name" autocomplete="name" placeholder="Enter your name" required>
                             <span class="form-error"></span>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" placeholder="Enter your email" required>
+                            <input type="email" id="email" name="email" autocomplete="email" placeholder="Enter your email" required>
                             <span class="form-error"></span>
                         </div>
                         <div class="form-group">
                             <label for="pesan">Message</label>
-                            <textarea id="pesan" rows="5" placeholder="Write your message..." required></textarea>
+                            <textarea id="pesan" name="message" autocomplete="off" rows="5" placeholder="Write your message..." required></textarea>
                             <span class="form-error"></span>
                         </div>
                         <button type="submit" class="btn">
                             <span class="btn-text">Send Message</span>
-                            <span class="btn-loader" style="display:none;"><i class="fas fa-spinner fa-spin"></i> Sending...</span>
+                            <span class="btn-loader" style="display:none;"><i class="fas fa-spinner fa-spin"></i>
+                                Sending...</span>
                         </button>
                     </form>
                     <div class="form-success" style="display:none;">
@@ -762,12 +930,14 @@
                     <span class="pulse-dot"></span> Available for Freelance Projects
                 </span>
                 <h2>Ready to Build Something <span class="cta-highlight">Great?</span></h2>
-                <p>Let's turn your idea into a powerful web application. Whether it's an e-commerce platform, a POS system, or a business dashboard — I'll build it clean, fast, and exactly how you need it.</p>
+                <p>Let's turn your idea into a powerful web application. Whether it's an e-commerce platform, a POS
+                    system, or a business dashboard — I'll build it clean, fast, and exactly how you need it.</p>
                 <div class="cta-buttons">
                     <a href="#kontak" class="btn btn-large">
                         <i class="fas fa-paper-plane"></i> Start a Project
                     </a>
-                    <a href="https://wa.me/6289694899767" class="btn btn-outline btn-large" target="_blank" rel="noopener">
+                    <a href="https://wa.me/6289694899767" class="btn btn-outline btn-large" target="_blank"
+                        rel="noopener">
                         <i class="fab fa-whatsapp"></i> Chat on WhatsApp
                     </a>
                 </div>
@@ -814,6 +984,12 @@
     <button id="backToTop" class="back-to-top" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
     </button>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6289694899767" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Chat via WhatsApp</span>
+    </a>
 
     <!-- Noise / Grain Overlay -->
     <div class="noise-overlay"></div>
@@ -891,6 +1067,38 @@
                     <h2 id="skillModalTitle" class="skill-modal-title"></h2>
                 </div>
                 <div class="skill-modal-body" id="skillModalBody"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CV Preview Modal -->
+    <div id="cvModal" class="cv-modal">
+        <div class="cv-modal-overlay" id="cvModalOverlay"></div>
+        <div class="cv-modal-container">
+            <button class="cv-modal-close" id="cvModalClose" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="cv-modal-header">
+                <i class="fas fa-file-pdf"></i>
+                <h3>CV Preview</h3>
+                <a href="cv-achmad-septian-mulia.pdf" class="cv-download-btn" download>
+                    <i class="fas fa-download"></i> Download
+                </a>
+            </div>
+            <div class="cv-modal-body">
+                <div class="cv-preview-placeholder">
+                    <i class="fas fa-file-pdf"></i>
+                    <h4>CV Achmad Septian Mulia</h4>
+                    <p>Klik tombol di bawah untuk melihat atau mengunduh CV.</p>
+                    <div class="cv-preview-actions">
+                        <a href="cv-achmad-septian-mulia.pdf" class="cv-action-btn" target="_blank" rel="noopener">
+                            <i class="fas fa-eye"></i> Lihat CV
+                        </a>
+                        <a href="cv-achmad-septian-mulia.pdf" class="cv-action-btn cv-action-download" download>
+                            <i class="fas fa-download"></i> Download CV
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

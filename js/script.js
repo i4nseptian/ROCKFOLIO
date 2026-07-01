@@ -353,42 +353,72 @@ if (fullscreenContainer) {
 }
 
 // ==========================================
-// PRELOADER — Balance between visibility & speed
+// PRELOADER
 // ==========================================
-window.addEventListener('load', () => {
-    const preloader = document.getElementById('preloader');
-    const progress = document.querySelector('.preloader-progress');
-    
-    if (preloader && progress) {
-        let width = 0;
-        let preloaderFinished = false;
-        
-        const hidePreloader = () => {
-            if (preloaderFinished) return;
-            preloaderFinished = true;
-            clearInterval(progressInterval);
-            width = 100;
-            progress.style.width = '100%';
-            setTimeout(() => {
-                preloader.classList.add('hidden');
-                setTimeout(() => {
-                    if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
-                }, 600);
-            }, 400);
-        };
-
-        const progressInterval = setInterval(() => {
-            width += Math.random() * 12 + 6;
-            if (width >= 100) {
-                hidePreloader();
-            }
-            progress.style.width = Math.min(width, 100) + '%';
-        }, 180);
-
-        // Safety timeout: force-hide after 5s on slow connections
-        setTimeout(hidePreloader, 5000);
+(function initPreloader() {
+    // Create floating music notes
+    const notesContainer = document.getElementById('preloaderNotes');
+    if (notesContainer) {
+        const notes = ['♪', '♫', '♬', '♪', '♫'];
+        notes.forEach((note, i) => {
+            const el = document.createElement('span');
+            el.className = 'preloader-note';
+            el.textContent = note;
+            el.style.left = (30 + Math.random() * 40) + '%';
+            el.style.animationDelay = (0.3 + i * 0.6) + 's';
+            el.style.fontSize = (12 + Math.random() * 10) + 'px';
+            notesContainer.appendChild(el);
+        });
     }
-});
+
+    window.addEventListener('load', () => {
+        const preloader = document.getElementById('preloader');
+        const progress = document.querySelector('.preloader-progress');
+        const percentEl = document.getElementById('preloaderPercent');
+        const loadingText = document.getElementById('preloaderLoading');
+        const statusTexts = ['Loading', 'Memuat', 'Preparing', 'Almost ready'];
+        
+        if (preloader && progress) {
+            let width = 0;
+            let preloaderFinished = false;
+            let statusIndex = 0;
+            
+            const hidePreloader = () => {
+                if (preloaderFinished) return;
+                preloaderFinished = true;
+                clearInterval(progressInterval);
+                clearInterval(statusInterval);
+                width = 100;
+                progress.style.width = '100%';
+                if (percentEl) percentEl.textContent = '100%';
+                if (loadingText) loadingText.textContent = 'Welcome! ♫';
+                setTimeout(() => {
+                    preloader.classList.add('hidden');
+                    setTimeout(() => {
+                        if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
+                    }, 600);
+                }, 500);
+            };
+
+            const progressInterval = setInterval(() => {
+                width += Math.random() * 8 + 3;
+                if (width >= 100) {
+                    hidePreloader();
+                }
+                const val = Math.min(width, 100);
+                progress.style.width = val + '%';
+                if (percentEl) percentEl.textContent = Math.round(val) + '%';
+            }, 150);
+            
+            const statusInterval = setInterval(() => {
+                statusIndex = (statusIndex + 1) % statusTexts.length;
+                if (loadingText && !preloaderFinished) loadingText.textContent = statusTexts[statusIndex];
+            }, 1200);
+            
+            setTimeout(hidePreloader, 4500);
+        }
+    });
+})();
 
 // ==========================================
 // BACK TO TOP BUTTON
@@ -1163,3 +1193,37 @@ document.querySelectorAll('.pencapaian-item').forEach(card => {
 
 if (svcClose) svcClose.addEventListener('click', closeServiceModal);
 if (svcOverlay) svcOverlay.addEventListener('click', closeServiceModal);
+
+// ==========================================
+// CV PREVIEW MODAL
+// ==========================================
+const cvModal = document.getElementById('cvModal');
+const cvOverlay = document.getElementById('cvModalOverlay');
+const cvClose = document.getElementById('cvModalClose');
+const cvTriggers = document.querySelectorAll('[data-open-cv]');
+
+function openCvModal(e) {
+  if (e) e.preventDefault();
+  if (!cvModal) return;
+  cvModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCvModal() {
+  if (!cvModal) return;
+  cvModal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+cvTriggers.forEach(btn => {
+  btn.addEventListener('click', openCvModal);
+});
+
+if (cvClose) cvClose.addEventListener('click', closeCvModal);
+if (cvOverlay) cvOverlay.addEventListener('click', closeCvModal);
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && cvModal && cvModal.classList.contains('active')) {
+    closeCvModal();
+  }
+});
